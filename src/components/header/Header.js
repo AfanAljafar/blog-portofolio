@@ -1,28 +1,33 @@
-import React from "react";
 import "./Header.css";
 
-function Header({ onScroll }) {
+const Header = ({ onScrollTo2, onScrollTo3, onScrollTo4 }) => {
   return (
     <div className="header-sect">
-      <h2 className="header-title">ynoir space</h2>
+      <h1 className="header-title">ynoir space</h1>
       <ul className="list-header">
-        <li>project.</li>
-        <li>about.</li>
-        <li>contact.</li>
+        <li onClick={onScrollTo2}>project.</li>
+        <li onClick={onScrollTo3}>about.</li>
+        <li onClick={onScrollTo4}>contact.</li>
       </ul>
-      <p>
+      <p className="summary">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </p>
       <div>
-        <button onClick={onScroll}>
-          <img src="arrow-down.svg" alt="arrow-down" className="arrow-nav" />
+        <button className="btn-arrow" onClick={onScrollTo2}>
+          <img
+            src="arrow-down-white.svg"
+            alt="arrow-down"
+            className="arrow-nav"
+          />
         </button>
       </div>
     </div>
   );
-}
+};
+
+Header.displayName = "Header";
 
 export default Header;

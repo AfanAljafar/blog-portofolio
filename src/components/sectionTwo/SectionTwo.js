@@ -9,4 +9,6 @@ const SectionTwo = forwardRef((props, ref) => {
   );
 });
 
+SectionTwo.displayName = "SectionTwo";
+
 export default SectionTwo;

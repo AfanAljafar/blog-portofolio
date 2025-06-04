@@ -2,20 +2,30 @@ import { useRef } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
 import SectionTwo from "./components/sectionTwo/SectionTwo";
+import SectionThree from "./components/sectionThree/SectionThree";
+import SectionFour from "./components/sectionFour/SectionFour";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const sectionRef = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
+  const section4Ref = useRef(null);
 
-  const handleScroll = () => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="App">
-      <Header onScroll={handleScroll} />
-      <SectionTwo ref={sectionRef} />
+      <Header
+        onScrollTo2={() => scrollToSection(section2Ref)}
+        onScrollTo3={() => scrollToSection(section3Ref)}
+        onScrollTo4={() => scrollToSection(section4Ref)}
+      />
+      <SectionTwo ref={section2Ref} />
+      <SectionThree ref={section3Ref} />
+      <SectionFour ref={section4Ref} />
+      <Footer />
     </div>
   );
 }
