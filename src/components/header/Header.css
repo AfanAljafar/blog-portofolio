@@ -1,0 +1,28 @@
+.header-sect {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  min-height: 100vh;
+  gap: 50px;
+}
+
+.header-title {
+  margin-top: 20px;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  gap: 150px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.arrow-nav {
+  height: 100px;
+  width: 100px;
+  border: none;
+  background-color: transparent;
+}
