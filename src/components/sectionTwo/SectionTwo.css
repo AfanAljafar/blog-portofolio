@@ -2,4 +2,23 @@
   display: flex;
   min-height: 100vh;
   background-color: transparent;
+  flex-direction: column;
+}
+
+.box-title-s2 {
+  display: flex;
+  min-width: 100%;
+  justify-content: center;
+}
+
+.sect2Title {
+  margin-top: 25px;
+  font-size: 60px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  gap: 25px;
 }
