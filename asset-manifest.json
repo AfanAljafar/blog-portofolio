@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ynoir/static/css/main.a73607e6.css",
+    "main.js": "/ynoir/static/js/main.72d16de7.js",
+    "static/js/453.fdbc00b4.chunk.js": "/ynoir/static/js/453.fdbc00b4.chunk.js",
+    "static/media/black-particles-background.png": "/ynoir/static/media/black-particles-background.373ba47a13fa6838deef.png",
+    "index.html": "/ynoir/index.html",
+    "main.a73607e6.css.map": "/ynoir/static/css/main.a73607e6.css.map",
+    "main.72d16de7.js.map": "/ynoir/static/js/main.72d16de7.js.map",
+    "453.fdbc00b4.chunk.js.map": "/ynoir/static/js/453.fdbc00b4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a73607e6.css",
+    "static/js/main.72d16de7.js"
+  ]
+}
