@@ -1,3 +1,4 @@
+import ArrowDoubleDown from "../arrowDoubleDown/ArrowDoubleDown";
 import "./Header.css";
 
 const Header = ({ onScrollTo2, onScrollTo3, onScrollTo4 }) => {
@@ -17,11 +18,12 @@ const Header = ({ onScrollTo2, onScrollTo3, onScrollTo4 }) => {
       </p>
       <div>
         <button className="btn-arrow" onClick={onScrollTo2}>
-          <img
-            src="arrow-down-white.svg"
+          {/* <img
+            src="/arrow-down-white.svg"
             alt="arrow-down"
             className="arrow-nav"
-          />
+          /> */}
+          <ArrowDoubleDown />
         </button>
       </div>
     </div>
