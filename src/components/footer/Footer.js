@@ -1,11 +1,9 @@
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ credit }) => {
   return (
     <div className="footer">
-      <p className="credit">
-        © 2035 by Afan Aljafar. Powered and secured by ynoir space
-      </p>
+      <p className="credit">{credit}</p>
     </div>
   );
 };

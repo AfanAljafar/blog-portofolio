@@ -25,7 +25,7 @@ function App() {
       <SectionTwo ref={section2Ref} />
       <SectionThree ref={section3Ref} />
       <SectionFour ref={section4Ref} />
-      <Footer />
+      <Footer credit="© 2035 by Afan Aljafar. Powered and secured by ynoir space" />
     </div>
   );
 }

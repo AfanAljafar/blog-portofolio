@@ -1,9 +1,14 @@
 import "./Card.css";
-const Card = ({ title, content }) => {
+const Card = ({ image, title, content }) => {
   return (
-    <div className="card">
+    <div className="warp-card">
+      {/* <h3>{title}</h3>
+      <p>{content}</p> */}
+      <div className="cover-project">
+        <img src={image} alt={title} className="project-image" />
+      </div>
       <h3>{title}</h3>
-      <p>{content}</p>
+      <div>{content}</div>
     </div>
   );
 };

@@ -1,10 +1,14 @@
-.card {
-  background: white;
+.warp-card {
+  background: transparent;
   /* border-radius: 12px; */
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   padding: 20px;
   /* transition: transform 0.2s ease; */
-  color: black;
+  /* color: black; */
   /* height: 200px;
   width: 350px; */
+}
+
+.cover-project {
+  background: white;
 }
