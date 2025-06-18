@@ -1,0 +1,10 @@
+.mini-project-page {
+  min-height: 100vh;
+  /* min-width: 100vw; */
+  background: green;
+}
+
+h2 {
+  padding-top: 15px;
+  text-align: center;
+}

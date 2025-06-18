@@ -11,4 +11,16 @@
 
 .cover-project {
   background: white;
+  width: 350px;
+  height: 140px;
+}
+
+.project-image {
+  width: 350px;
+  height: 140px;
+}
+
+.title-project,
+.desc-content {
+  text-align: center;
 }

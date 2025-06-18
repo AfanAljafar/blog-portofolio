@@ -1,21 +1,25 @@
 import ArrowDoubleDown from "../arrowDoubleDown/ArrowDoubleDown";
 import "./Header.css";
 
-const Header = ({ onScrollTo2, onScrollTo3, onScrollTo4 }) => {
+const Header = ({
+  onScrollTo2,
+  onScrollTo3,
+  onScrollTo4,
+  link1,
+  link2,
+  link3,
+  logoBrand,
+  profileDesc,
+}) => {
   return (
     <div className="header-sect">
-      <h1 className="header-title">ynoir space</h1>
+      <h1 className="header-title">{logoBrand}</h1>
       <ul className="list-header">
-        <li onClick={onScrollTo2}>project.</li>
-        <li onClick={onScrollTo3}>about.</li>
-        <li onClick={onScrollTo4}>contact.</li>
+        <li onClick={onScrollTo2}>{link1}</li>
+        <li onClick={onScrollTo3}>{link2}</li>
+        <li onClick={onScrollTo4}>{link3}</li>
       </ul>
-      <p className="summary">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
-      </p>
+      <p className="summary">{profileDesc}</p>
       <div>
         <button className="btn-arrow" onClick={onScrollTo2}>
           {/* <img

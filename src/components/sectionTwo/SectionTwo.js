@@ -4,23 +4,36 @@ import Card from "../card/Card";
 
 const data = [
   {
-    title: "Temperature Coneverter",
-    content: "mini Project konverter suhu",
-    image: "temperaturConvert.png",
+    title: "Mini Project",
+    content: "kompilasi mini project",
+    image: process.env.PUBLIC_URL + "/miniProject.png",
+    path: "/mini-project",
   },
-  { title: "Card 2", content: "Ini isi kartu kedua.", image: "gambar2" },
   {
-    title: "Card 3",
-    content: "Isi kartu ketiga yang lebih panjang.",
-    image: "gambar3",
+    title: "Project 2",
+    content: "dekripsi singkat project.",
+    image: "gambar 2",
   },
-  { title: "Card 4", content: "Dan seterusnya.", image: "gambar4" },
   {
-    title: "Card 5",
-    content: "Isi kartu ketiga yang lebih panjang.",
-    image: "gambar5",
+    title: "Project 3",
+    content: "dekripsi singkat project.",
+    image: "gambar 3",
   },
-  { title: "Card 6", content: "Dan seterusnya.", image: "gambar3" },
+  {
+    title: "Project 4",
+    content: "dekripsi singkat project.",
+    image: "gambar 4",
+  },
+  {
+    title: "Project 5",
+    content: "dekripsi singkat project.",
+    image: "gambar 5",
+  },
+  {
+    title: "Project 6",
+    content: "dekripsi singkat project.",
+    image: "gambar 6",
+  },
 ];
 
 const SectionTwo = forwardRef((props, ref) => {
@@ -36,6 +49,7 @@ const SectionTwo = forwardRef((props, ref) => {
             title={item.title}
             content={item.content}
             image={item.image}
+            path={item.path}
           />
         ))}
       </div>
