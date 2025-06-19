@@ -1,10 +1,17 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  gap: 25px;
+}
+
 .mini-project-page {
   min-height: 100vh;
   /* min-width: 100vw; */
   background: green;
 }
 
-h2 {
+.title-page-mini-project {
   padding-top: 15px;
   text-align: center;
 }
