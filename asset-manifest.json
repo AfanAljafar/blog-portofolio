@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ynoir/static/css/main.964b7c25.css",
-    "main.js": "/ynoir/static/js/main.f22973bc.js",
+    "main.js": "/ynoir/static/js/main.42727d02.js",
     "static/js/453.fdbc00b4.chunk.js": "/ynoir/static/js/453.fdbc00b4.chunk.js",
     "static/media/black-particles-background.png": "/ynoir/static/media/black-particles-background.373ba47a13fa6838deef.png",
     "index.html": "/ynoir/index.html",
     "main.964b7c25.css.map": "/ynoir/static/css/main.964b7c25.css.map",
-    "main.f22973bc.js.map": "/ynoir/static/js/main.f22973bc.js.map",
+    "main.42727d02.js.map": "/ynoir/static/js/main.42727d02.js.map",
     "453.fdbc00b4.chunk.js.map": "/ynoir/static/js/453.fdbc00b4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.964b7c25.css",
-    "static/js/main.f22973bc.js"
+    "static/js/main.42727d02.js"
   ]
 }
