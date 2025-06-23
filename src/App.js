@@ -5,7 +5,7 @@ import MiniProject from "./pages/miniProject/MiniProject";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/ynoir" element={<Home />} />
       <Route path="/mini-project" element={<MiniProject />} />
     </Routes>
   );
