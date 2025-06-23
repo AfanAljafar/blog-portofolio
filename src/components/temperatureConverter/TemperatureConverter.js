@@ -36,7 +36,7 @@ const UnitsConverter = () => {
             </div>
           </div>
           <div className="formula-box">
-            <span className="label">Formula</span>
+            <span className="label">Formula Temperature</span>
             <span className="formula-text">
               {/* ({celsius}°C × 9/5) + 32 = {fahrenheit.toFixed(2)}°F */}
             </span>
