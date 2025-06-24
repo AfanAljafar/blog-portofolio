@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import "./ModalCard.css";
-import UnitsConverter from "../temperatureConverter/TemperatureConverter";
+import UnitsConverter from "../temperatureConverter/UnitsConverter";
+// import TemperatureConverter from "../temperatureConverter/TemperatureConverter";
 
 ReactModal.setAppElement("#root");
 
@@ -42,6 +43,7 @@ const ModalCard = ({ image, title, titleModal, desModal }) => {
         overlayClassName="overlay"
       >
         <UnitsConverter />
+        {/* <TemperatureConverter /> */}
         <button className="btn-close" onClick={closeModal}>
           close
         </button>
