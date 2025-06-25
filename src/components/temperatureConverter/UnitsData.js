@@ -131,7 +131,7 @@ const data = [
   },
   {
     physicalQuantity: "Temperature",
-    units: ["Kelvin", "Celcius", "Fahrenheit", "Reamur"],
+    units: ["Kelvin", "Celsius", "Fahrenheit", "Reamur"],
   },
   {
     physicalQuantity: "Time",
@@ -226,16 +226,16 @@ const conversion = [
   {
     physicalQuantityConversion: "Temperature",
     formulas: [
-      { pair: "Celcius to Fahrenheit", formula: (c) => (9 / 5) * c + 32 },
-      { pair: "Celcius to Reamur", formula: (c) => (4 / 5) * c },
-      { pair: "Celcius to Kelvin", formula: (c) => c + 273.15 },
-      { pair: "Fahrenheit to Celcius", formula: (f) => (f - 32) * (5 / 9) },
+      { pair: "Celsius to Fahrenheit", formula: (c) => (9 / 5) * c + 32 },
+      { pair: "Celsius to Reamur", formula: (c) => (4 / 5) * c },
+      { pair: "Celsius to Kelvin", formula: (c) => c + 273.15 },
+      { pair: "Fahrenheit to Celsius", formula: (f) => (f - 32) * (5 / 9) },
       { pair: "Fahrenheit to Reamur", formula: (f) => (4 / 9) * (f - 32) },
       {
         pair: "Fahrenheit to Kelvin",
         formula: (f) => (5 / 9) * (f - 32) + 273.15,
       },
-      { pair: "Reamur to Celcius", formula: (r) => (5 / 4) * r },
+      { pair: "Reamur to Celsius", formula: (r) => (5 / 4) * r },
       { pair: "Reamur to Fahrenheit", formula: (r) => (9 / 4) * r + 32 },
       { pair: "Reamur to Kelvin", formula: (r) => (5 / 4) * r + 273.15 },
       { pair: "Kelvin to Celcius", formula: (k) => k - 273.15 },
