@@ -1,0 +1,66 @@
+.section-four {
+  display: flex;
+  min-height: 100vh;
+  background-color: transparent;
+  flex-direction: column;
+}
+.box-title-s4 {
+  display: flex;
+  min-width: 100%;
+  justify-content: center;
+}
+
+.sect4Title {
+  margin-top: 50px;
+  font-size: 60px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background-color: whitesmoke;
+  color: black;
+  padding: 10px 30px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+button:hover {
+  opacity: 0.9;
+}

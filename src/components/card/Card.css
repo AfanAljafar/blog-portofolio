@@ -1,0 +1,27 @@
+.warp-card {
+  background: transparent;
+  /* border-radius: 12px; */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  /* transition: transform 0.2s ease; */
+  /* color: black; */
+  /* height: 200px;
+  width: 350px; */
+  width: 350px;
+}
+
+.cover-project {
+  background: white;
+  width: 350px;
+  height: 140px;
+}
+
+.project-image {
+  width: 350px;
+  height: 140px;
+}
+
+.title-project,
+.desc-content {
+  text-align: center;
+}

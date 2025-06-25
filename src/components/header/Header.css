@@ -1,0 +1,38 @@
+.header-sect {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  min-height: 100vh;
+  gap: 50px;
+  align-items: center;
+}
+
+.header-title {
+  margin-top: 20px;
+  font-size: 60px;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  gap: 150px;
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.summary {
+  padding: 15px;
+  text-align: center;
+}
+
+.btn-arrow {
+  background-color: transparent;
+  border: none;
+}
+/* .arrow-nav {
+  height: 100px;
+  width: 100px;
+} */

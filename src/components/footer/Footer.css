@@ -1,0 +1,9 @@
+.footer {
+  display: block;
+  height: 10vh;
+  background-color: transparent;
+}
+
+.credit {
+  text-align: center;
+}
