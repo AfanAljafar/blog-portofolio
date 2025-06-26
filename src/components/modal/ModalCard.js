@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import "./ModalCard.css";
-import UnitsConverter from "../temperatureConverter/UnitsConverter";
-// import TemperatureConverter from "../temperatureConverter/TemperatureConverter";
+// import UnitsConverter from "../unitsConverter/UnitsConverter";
 
 ReactModal.setAppElement("#root");
 
-const ModalCard = ({ image, title, titleModal, desModal }) => {
+const ModalCard = ({ image, title, titleModal, desModal, component }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -21,6 +20,8 @@ const ModalCard = ({ image, title, titleModal, desModal }) => {
     setIsOpen(false);
     console.log("your action will be updated soon.....");
   };
+  const DynamicComponent = component;
+
   return (
     <div>
       <div
@@ -42,8 +43,8 @@ const ModalCard = ({ image, title, titleModal, desModal }) => {
         className="modal"
         overlayClassName="overlay"
       >
-        <UnitsConverter />
-        {/* <TemperatureConverter /> */}
+        {/* <UnitsConverter /> i want to make this dinamis components */}
+        {DynamicComponent && <DynamicComponent />}
         <button className="btn-close" onClick={closeModal}>
           close
         </button>
