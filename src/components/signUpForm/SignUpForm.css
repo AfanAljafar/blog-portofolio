@@ -1,0 +1,79 @@
+.warp-signUpForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-signUpForm {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.container-signUpForm {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-signUpForm {
+  width: fit-content;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-name,
+.input-email,
+.input-password {
+  height: 24px;
+  border-radius: 6px;
+  border-color: #a5a5a5;
+}
+
+.submit-signUp-button {
+  background: black;
+  color: whitesmoke;
+  border-radius: 6px;
+}
+
+.submit-signUp-button:hover {
+  background: rgb(94, 94, 94);
+  color: white;
+}
+
+.input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-password {
+  width: 100%;
+  padding-right: 35px;
+  /* box-sizing: border-box; */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 6px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

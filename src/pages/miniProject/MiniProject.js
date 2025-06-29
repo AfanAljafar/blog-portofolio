@@ -12,8 +12,8 @@ const minisProject = [
     component: UnitsConverter,
   },
   {
-    titleModal: "Mini Project 2",
-    desModal: "Mini Project 2",
+    titleModal: "Sign Up Form",
+    desModal: "Sign Up Form",
     image: process.env.PUBLIC_URL + "miniproject2",
     component: SignUpForm,
   },
