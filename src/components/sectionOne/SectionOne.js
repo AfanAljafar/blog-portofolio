@@ -15,7 +15,7 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
           Hi, I'm Afan Aljafar 👋
         </h1>
         <p className="text-lg mt-2 text-cyan-300 font-medium">
-          Fullstack Developer
+          Junior Fullstack Developer
         </p>
         <p className="mt-4 text-sky-100 max-w-md mx-auto md:mx-0">
           I build modern, responsive web apps with clean UI and smooth UX
@@ -25,10 +25,38 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
 
         {/* SOCIAL ICONS */}
         <div className="flex justify-center md:justify-start gap-4 mt-4 text-cyan-300">
-          <Github />
-          <Instagram />
-          <Linkedin />
-          <Twitter />
+          <a
+            href="https://github.com/AfanAljafar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <Github />
+          </a>
+          <a
+            href="https://www.instagram.com/afanaljafar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <Instagram />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/muhammadafanaljafar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://twitter.com/username"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            <Twitter />
+          </a>
         </div>
 
         {/* BUTTONS */}
