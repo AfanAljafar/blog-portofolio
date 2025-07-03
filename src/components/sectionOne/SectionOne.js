@@ -48,11 +48,11 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
         {/* QUICK STATS */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 text-sm text-center md:text-left">
           <div>
-            <p className="font-bold text-white">2+ Years</p>
+            <p className="font-bold text-white">less than 1 Years</p>
             <p className="text-cyan-200">Experience</p>
           </div>
           <div>
-            <p className="font-bold text-white">JavaScript</p>
+            <p className="font-bold text-white">JavaScript, Python</p>
             <p className="text-cyan-200">Main Language</p>
           </div>
           <div>
@@ -60,7 +60,7 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
             <p className="text-cyan-200">Total Projects</p>
           </div>
           <div>
-            <p className="font-bold text-white">3.55 / 4.00</p>
+            <p className="font-bold text-white">2.89 / 4.00</p>
             <p className="text-cyan-200">GPA</p>
           </div>
         </div>

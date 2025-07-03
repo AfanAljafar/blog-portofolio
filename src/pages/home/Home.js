@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import "./Home.css";
 import Header from "../../components/header/Header";
 import SectionOne from "../../components/sectionOne/SectionOne";
 import SectionTwo from "../../components/sectionTwo/SectionTwo";

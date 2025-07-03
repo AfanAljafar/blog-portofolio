@@ -1,52 +1,50 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
-import "./ModalCard.css";
-// import UnitsConverter from "../unitsConverter/UnitsConverter";
 
 ReactModal.setAppElement("#root");
 
 const ModalCard = ({ image, title, titleModal, desModal, component }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const afterOpenModal = () => {
-    console.log("modal opened");
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-    console.log("modal closed");
-  };
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   const DynamicComponent = component;
 
   return (
     <div>
       <div
-        className="card-modal"
         onClick={openModal}
-        style={{ cursor: "pointer" }}
+        className="card-modal cursor-pointer bg-transparent w-full max-w-[350px] p-4 transition-transform duration-200 hover:scale-105 mx-auto"
       >
-        <div className="cover-modal">
-          <img src={image} alt={title} className="modal-image" />
+        <div className="cover-modal bg-white w-full h-[140px] overflow-hidden rounded-md">
+          <img
+            src={image}
+            alt={title}
+            className="modal-image w-full h-full object-cover"
+          />
         </div>
-        <h3 className="title-modal">{titleModal}</h3>
-        <div className="desc-modal">{desModal}</div>
+        <h3 className="title-modal text-center text-lg font-semibold mt-2 text-white">
+          {titleModal}
+        </h3>
+        <p className="desc-modal text-center text-sm text-cyan-300">
+          {desModal}
+        </p>
       </div>
+
       <ReactModal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
-        className="modal"
-        overlayClassName="overlay"
+        contentLabel="Modal"
+        className="modal absolute top-[10%] left-[5%] right-[5%] bottom-[10%] md:left-[200px] md:right-[200px] bg-[#f1f1f1] p-4 overflow-auto rounded shadow-lg overflow-x-hidden"
+        overlayClassName="fixed inset-0 bg-[rgba(49,49,49,0.8)] z-50 flex items-center justify-center overflow-x-hidden"
       >
-        {/* <UnitsConverter /> i want to make this dinamis components */}
         {DynamicComponent && <DynamicComponent />}
-        <button className="btn-close" onClick={closeModal}>
-          close
+
+        <button
+          onClick={closeModal}
+          className="btn-close mt-4 bg-gray-700 text-white px-4 py-2 rounded absolute bottom-4 right-4 hover:bg-gray-800"
+        >
+          Close
         </button>
       </ReactModal>
     </div>
