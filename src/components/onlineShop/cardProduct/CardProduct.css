@@ -1,0 +1,43 @@
+.warp-product-card {
+  background: transparent;
+  /* border-radius: 12px; */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  padding: 15px;
+  /* transition: transform 0.2s ease; */
+  /* color: black; */
+  /* height: 200px;
+    width: 350px; */
+  width: 160px;
+  cursor: pointer;
+  background: rgb(97, 90, 90);
+}
+
+.cover-product {
+  background: white;
+  width: 160px;
+  height: 140px;
+}
+
+.product-image {
+  width: 160px;
+  height: 140px;
+}
+
+.product-name,
+.product-price {
+  text-align: center;
+}
+
+.quantity-order {
+  display: flex;
+  flex-direction: row;
+}
+
+.display-quantity-order {
+  width: 30px;
+  text-align: center;
+}
+.button-increase,
+.button-decrease {
+  cursor: pointer;
+}

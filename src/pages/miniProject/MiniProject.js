@@ -1,4 +1,5 @@
 import ModalCard from "../../components/modal/ModalCard";
+import OnlineShop from "../../components/onlineShop/OnlineShop";
 import SignUpForm from "../../components/signUpForm/SignUpForm";
 import ToDoList from "../../components/toDoList/ToDoList";
 import UnitsConverter from "../../components/unitsConverter/UnitsConverter";
@@ -18,10 +19,16 @@ const minisProject = [
     component: SignUpForm,
   },
   {
-    titleModal: "Mini Project 3",
-    desModal: "Mini Project 3",
+    titleModal: "To Do List",
+    desModal: "To Do List",
     image: process.env.PUBLIC_URL + "miniproject3",
     component: ToDoList,
+  },
+  {
+    titleModal: "Online Shop",
+    desModal: "Online Shop",
+    image: process.env.PUBLIC_URL + "miniproject3",
+    component: OnlineShop,
   },
 ];
 

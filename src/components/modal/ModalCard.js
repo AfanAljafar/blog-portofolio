@@ -13,12 +13,12 @@ const ModalCard = ({ image, title, titleModal, desModal, component }) => {
   };
 
   const afterOpenModal = () => {
-    console.log("you will update progress.....");
+    console.log("modal opened");
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    console.log("your action will be updated soon.....");
+    console.log("modal closed");
   };
   const DynamicComponent = component;
 

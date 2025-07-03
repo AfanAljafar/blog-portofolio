@@ -1,22 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import "./Card.css";
+
 const Card = ({ image, title, content, path }) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="warp-card"
-      style={{ cursor: "pointer" }}
       onClick={() => navigate(path)}
+      className="w-full sm:w-[300px] md:w-[350px] p-5 bg-transparent cursor-pointer transition-transform duration-200 hover:scale-105"
     >
-      <div className="cover-project">
-        <img src={image} alt={title} className="project-image" />
+      <div className="w-full h-[140px] bg-white overflow-hidden rounded shadow-md">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
-      <h3 className="title-project">{title}</h3>
-      <div className="desc-content">{content}</div>
+      <h3 className="text-center text-lg font-semibold text-white mt-4">
+        {title}
+      </h3>
+      <p className="text-center text-sm text-gray-300 mt-1">{content}</p>
     </div>
   );
 };
+
 Card.displayName = "Card";
 
 export default Card;
