@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/blog-portofolio/static/css/main.6e72a962.css",
-    "main.js": "/blog-portofolio/static/js/main.c95bda40.js",
-    "static/js/453.a79a8ee8.chunk.js": "/blog-portofolio/static/js/453.a79a8ee8.chunk.js",
-    "static/media/black-particles-background.png": "/blog-portofolio/static/media/black-particles-background.373ba47a13fa6838deef.png",
+    "main.css": "/blog-portofolio/static/css/main.40b396c0.css",
+    "main.js": "/blog-portofolio/static/js/main.d90ca9e7.js",
+    "static/js/453.1eab2578.chunk.js": "/blog-portofolio/static/js/453.1eab2578.chunk.js",
+    "static/media/space-planet-white.png": "/blog-portofolio/static/media/space-planet-white.985b12dbe7b6d24bf69f.png",
+    "static/media/profile-linkedin.jpg": "/blog-portofolio/static/media/profile-linkedin.f7e205426b0d503f3a6b.jpg",
     "index.html": "/blog-portofolio/index.html",
-    "main.6e72a962.css.map": "/blog-portofolio/static/css/main.6e72a962.css.map",
-    "main.c95bda40.js.map": "/blog-portofolio/static/js/main.c95bda40.js.map",
-    "453.a79a8ee8.chunk.js.map": "/blog-portofolio/static/js/453.a79a8ee8.chunk.js.map"
+    "main.40b396c0.css.map": "/blog-portofolio/static/css/main.40b396c0.css.map",
+    "main.d90ca9e7.js.map": "/blog-portofolio/static/js/main.d90ca9e7.js.map",
+    "453.1eab2578.chunk.js.map": "/blog-portofolio/static/js/453.1eab2578.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e72a962.css",
-    "static/js/main.c95bda40.js"
+    "static/css/main.40b396c0.css",
+    "static/js/main.d90ca9e7.js"
   ]
 }
