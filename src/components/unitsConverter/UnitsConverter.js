@@ -1,44 +1,29 @@
 import React, { useState } from "react";
-import "./UnitsConverter.css";
 import data from "./UnitsData";
 
 const UnitsConverter = () => {
   const [quantityPhysical, setQuantityPhysical] = useState("Length");
-
-  const [inputUnit, setInputUnit] = useState("");
-  const [outputUnit, setOutputUnit] = useState("");
-
-  const handleChange = (e) => {
-    setQuantityPhysical(e.target.value);
-  };
+  const [inputUnit, setInputUnit] = useState("Kilometre");
+  const [outputUnit, setOutputUnit] = useState("Kilometre");
 
   const selectedData = data.find(
     (item) => item.physicalQuantity === quantityPhysical
   );
   const units = selectedData ? selectedData.units : [];
 
-  const handleChangeInputUnit = (e) => {
-    setInputUnit(e.target.value);
-  };
-
-  const handleChangeOutputUnit = (e) => {
-    setOutputUnit(e.target.value);
-  };
-
   return (
-    <div className="wrap-converter">
-      <h2 className="title-units-converter">Units Converter</h2>
-      <div className="container-converter">
-        <div className="converter-card">
+    <div className="w-full h-full flex flex-col p-4">
+      <h2 className="text-center text-2xl font-semibold mb-4 text-sky-950">
+        Units Converter
+      </h2>
+
+      <div className="w-full flex justify-center items-center">
+        <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+          {/* Select physical quantity */}
           <select
-            className="quantity-selected"
+            className="w-full p-2 text-sm mb-6 bg-gray-200 rounded"
             value={quantityPhysical}
-            onChange={handleChange}
-            // onChange={(e) => {
-            //   setQuantityPhysical(e.target.value);
-            //   setInputUnit("");
-            //   setOutputUnit("");
-            // }}
+            onChange={(e) => setQuantityPhysical(e.target.value)}
           >
             {data.map((item, index) => (
               <option key={index} value={item.physicalQuantity}>
@@ -46,13 +31,19 @@ const UnitsConverter = () => {
               </option>
             ))}
           </select>
-          <div className="form-row">
-            <div className="form-column1">
-              <input type="number" className="input1" />
+
+          {/* Input and Output Block */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Input block */}
+            <div className="flex flex-col w-full">
+              <input
+                type="number"
+                className="text-xl border border-gray-300 p-2 rounded-t-md w-full focus:outline-none"
+              />
               <select
-                className="units-input"
+                className="text-sm bg-gray-200 border border-t-0 border-gray-300 p-2 rounded-b-md w-full focus:outline-none"
                 value={inputUnit}
-                onChange={handleChangeInputUnit}
+                onChange={(e) => setInputUnit(e.target.value)}
               >
                 {units.map((unit, index) => (
                   <option key={index} value={unit}>
@@ -61,13 +52,21 @@ const UnitsConverter = () => {
                 ))}
               </select>
             </div>
-            <div className="equal-sign">=</div>
-            <div className="form-column2">
-              <input type="number" className="input2" readOnly />
+
+            {/* Equal sign */}
+            <div className="text-2xl font-bold text-center">=</div>
+
+            {/* Output block */}
+            <div className="flex flex-col w-full">
+              <input
+                type="number"
+                readOnly
+                className="text-xl border border-gray-300 p-2 rounded-t-md w-full bg-gray-100 focus:outline-none"
+              />
               <select
-                className="units-output"
+                className="text-sm bg-gray-200 border border-t-0 border-gray-300 p-2 rounded-b-md w-full focus:outline-none"
                 value={outputUnit}
-                onChange={handleChangeOutputUnit}
+                onChange={(e) => setOutputUnit(e.target.value)}
               >
                 {units.map((unit, index) => (
                   <option key={index} value={unit}>
@@ -77,10 +76,12 @@ const UnitsConverter = () => {
               </select>
             </div>
           </div>
-          <div className="formula-box">
-            <span className="label">Formula</span>
-            <span className="formula-text">
-              {/* ({celsius}°C × 9/5) + 32 = {fahrenheit.toFixed(2)}°F */}
+
+          {/* Formula display */}
+          <div className="bg-gray-100 p-2 mt-6 rounded text-sm">
+            <span className="font-semibold">Formula: </span>
+            <span className="text-gray-600 italic">
+              the formula will be displayed here
             </span>
           </div>
         </div>

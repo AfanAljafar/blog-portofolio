@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./CardProduct.css";
 
 const CardProduct = ({
   image,
@@ -12,39 +11,73 @@ const CardProduct = ({
   useEffect(() => {
     onQuantityChange?.(quantityOrder);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quantityOrder]); // kirim update hanya jika quantity berubah
+  }, [quantityOrder]);
 
   const handleIncrease = () => {
-    setQuantityOrder((prev) => prev + 1);
+    setQuantityOrder((prev) => (isNaN(prev) ? 1 : prev + 1));
   };
 
   const handleDecrease = () => {
-    setQuantityOrder((prev) => (prev > 0 ? prev - 1 : 0));
+    setQuantityOrder((prev) => {
+      if (isNaN(prev) || prev <= 0) return 0;
+      return prev - 1;
+    });
   };
 
   const handleInputChange = (e) => {
-    const val = parseInt(e.target.value) || 0;
-    setQuantityOrder(val);
+    let val = e.target.value;
+
+    // Jika kosong, set jadi 0
+    if (val === "") {
+      setQuantityOrder(0);
+      return;
+    }
+
+    // Konversi ke angka dan hilangkan leading zero
+    const num = parseInt(val, 10);
+
+    // Cegah nilai negatif atau NaN
+    if (isNaN(num) || num < 0) {
+      return;
+    }
+
+    setQuantityOrder(num);
   };
 
   return (
-    <div className="warp-product-card">
-      <div className="cover-product">
-        <img src={image} alt={productName} className="product-image" />
+    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center text-center">
+      <div className="w-full h-40 overflow-hidden rounded">
+        <img
+          src={image}
+          alt={productName}
+          className="w-full h-full object-cover"
+        />
       </div>
-      <h3 className="product-name">{productName}</h3>
-      <div className="product-price">{productPrice}</div>
-      <div className="quantity-order">
-        <button className="button-increase" onClick={handleIncrease}>
-          +
+      <h3 className="mt-4 text-lg font-semibold text-gray-800">
+        {productName}
+      </h3>
+      <div className="text-sky-700 font-medium">{productPrice}</div>
+      <div className="flex items-center gap-2 mt-4">
+        <button
+          onClick={handleDecrease}
+          className="px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600"
+        >
+          -
         </button>
         <input
-          className="display-quantity-order"
-          value={quantityOrder}
+          type="number"
+          className="w-14 text-center border rounded py-1 px-2" // tailwind class kamu
+          value={quantityOrder === 0 ? "" : quantityOrder} // <- tampilkan kosong jika 0
           onChange={handleInputChange}
+          placeholder="0"
+          min={0}
         />
-        <button className="button-decrease" onClick={handleDecrease}>
-          -
+
+        <button
+          onClick={handleIncrease}
+          className=" px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600"
+        >
+          +
         </button>
       </div>
     </div>

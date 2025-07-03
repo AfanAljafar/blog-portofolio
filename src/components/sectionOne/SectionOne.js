@@ -7,7 +7,7 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
   return (
     <section
       ref={ref}
-      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[70px] md:pt-0 flex flex-col md:flex-row items-center justify-between gap-10 "
+      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[82px] md:pt-0 flex flex-col md:flex-row items-center justify-between gap-10 "
     >
       {/* LEFT CONTENT */}
       <div className="flex-1 text-white text-center md:text-left">

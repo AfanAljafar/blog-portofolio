@@ -40,12 +40,14 @@ const ModalCard = ({ image, title, titleModal, desModal, component }) => {
       >
         {DynamicComponent && <DynamicComponent />}
 
-        <button
-          onClick={closeModal}
-          className="btn-close mt-4 bg-gray-700 text-white px-4 py-2 rounded absolute bottom-4 right-4 hover:bg-gray-800"
-        >
-          Close
-        </button>
+        <div className="sticky bottom-0 bg-white p-4 border-t text-right">
+          <button
+            onClick={closeModal}
+            className="btn-close mt-4 bg-gray-700 text-white px-4 py-2 rounded absolute bottom-4 right-4 hover:bg-gray-800"
+          >
+            Close
+          </button>
+        </div>
       </ReactModal>
     </div>
   );
