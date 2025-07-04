@@ -19,7 +19,7 @@ const UnitsConverter = () => {
 
       <div className="w-full flex justify-center items-center">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-          {/* Select physical quantity */}
+          {/* select physical quantity */}
           <select
             className="w-full p-2 text-sm mb-6 bg-gray-200 rounded"
             value={quantityPhysical}
@@ -32,9 +32,9 @@ const UnitsConverter = () => {
             ))}
           </select>
 
-          {/* Input and Output Block */}
+          {/* input and output block */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Input block */}
+            {/* input block */}
             <div className="flex flex-col w-full">
               <input
                 type="number"
@@ -53,10 +53,10 @@ const UnitsConverter = () => {
               </select>
             </div>
 
-            {/* Equal sign */}
+            {/* equal sign */}
             <div className="text-2xl font-bold text-center">=</div>
 
-            {/* Output block */}
+            {/* output block */}
             <div className="flex flex-col w-full">
               <input
                 type="number"
@@ -77,7 +77,7 @@ const UnitsConverter = () => {
             </div>
           </div>
 
-          {/* Formula display */}
+          {/* formula display */}
           <div className="bg-gray-100 p-2 mt-6 rounded text-sm">
             <span className="font-semibold">Formula: </span>
             <span className="text-gray-600 italic">

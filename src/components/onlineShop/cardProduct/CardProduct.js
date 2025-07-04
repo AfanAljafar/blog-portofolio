@@ -10,8 +10,7 @@ const CardProduct = ({
 
   useEffect(() => {
     onQuantityChange?.(quantityOrder);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quantityOrder]);
+  }, [quantityOrder, onQuantityChange]);
 
   const handleIncrease = () => {
     setQuantityOrder((prev) => (isNaN(prev) ? 1 : prev + 1));
@@ -24,19 +23,18 @@ const CardProduct = ({
     });
   };
 
+  //function for event input
   const handleInputChange = (e) => {
     let val = e.target.value;
 
-    // Jika kosong, set jadi 0
     if (val === "") {
       setQuantityOrder(0);
       return;
     }
 
-    // Konversi ke angka dan hilangkan leading zero
     const num = parseInt(val, 10);
 
-    // Cegah nilai negatif atau NaN
+    // Prevent negative or NaN values
     if (isNaN(num) || num < 0) {
       return;
     }
@@ -66,8 +64,8 @@ const CardProduct = ({
         </button>
         <input
           type="number"
-          className="w-14 text-center border rounded py-1 px-2" // tailwind class kamu
-          value={quantityOrder === 0 ? "" : quantityOrder} // <- tampilkan kosong jika 0
+          className="w-14 text-center border rounded py-1 px-2"
+          value={quantityOrder === 0 ? "" : quantityOrder}
           onChange={handleInputChange}
           placeholder="0"
           min={0}

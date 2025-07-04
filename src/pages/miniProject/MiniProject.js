@@ -1,39 +1,45 @@
+import { useEffect } from "react";
 import ModalCard from "../../components/modal/ModalCard";
 import OnlineShop from "../../components/onlineShop/OnlineShop";
 import SignUpForm from "../../components/signUpForm/SignUpForm";
-import ToDoList from "../../components/toDoList/ToDoList";
+import TodoApp from "../../components/toDoApp/ToDoApp";
+
 import UnitsConverter from "../../components/unitsConverter/UnitsConverter";
 
-const minisProject = [
-  {
-    titleModal: "Units Converter",
-    desModal: "Units Converter",
-    image: process.env.PUBLIC_URL + "/temperaturConvert.png",
-    component: UnitsConverter,
-  },
-  {
-    titleModal: "Sign Up Form",
-    desModal: "Sign Up Form",
-    image: process.env.PUBLIC_URL + "/miniproject2.png",
-    component: SignUpForm,
-  },
-  {
-    titleModal: "To Do List",
-    desModal: "To Do List",
-    image: process.env.PUBLIC_URL + "/miniproject3.png",
-    component: ToDoList,
-  },
-  {
-    titleModal: "Online Shop",
-    desModal: "Online Shop",
-    image: process.env.PUBLIC_URL + "/miniproject4.png",
-    component: OnlineShop,
-  },
-];
+const MiniProject = ({ todos, setTodos }) => {
+  const minisProject = [
+    {
+      titleModal: "Units Converter",
+      desModal: "Units Converter",
+      image: process.env.PUBLIC_URL + "/temperaturConvert.png",
+      render: () => <UnitsConverter />,
+    },
+    {
+      titleModal: "Sign Up Form",
+      desModal: "Sign Up Form",
+      image: process.env.PUBLIC_URL + "/miniproject2.png",
+      render: () => <SignUpForm />,
+    },
+    {
+      titleModal: "To Do App",
+      desModal: "To Do App",
+      image: process.env.PUBLIC_URL + "/miniproject3.png",
+      render: () => <TodoApp todos={todos} setTodos={setTodos} />,
+    },
+    {
+      titleModal: "Online Shop",
+      desModal: "Online Shop",
+      image: process.env.PUBLIC_URL + "/miniproject4.png",
+      render: () => <OnlineShop />,
+    },
+  ];
 
-const MiniProject = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // automatically scroll up when page is opened
+  }, []);
+
   return (
-    <div className="min-h-screen bg-sky-950 px-4 py-8">
+    <div className="min-h-screen bg-sky-950 px-4 py-8 ">
       <h2 className="text-center text-3xl md:text-4xl font-bold text-white pt-4 mb-8">
         Mini Project.
       </h2>
@@ -45,7 +51,7 @@ const MiniProject = () => {
             titleModal={item.titleModal}
             desModal={item.desModal}
             image={item.image}
-            component={item.component}
+            component={item.render}
           />
         ))}
       </div>

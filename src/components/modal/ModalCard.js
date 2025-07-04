@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import ReactModal from "react-modal";
+// import TodoApp from "../toDoList/ToDoApp";
 
 ReactModal.setAppElement("#root");
 
@@ -8,7 +10,6 @@ const ModalCard = ({ image, title, titleModal, desModal, component }) => {
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const DynamicComponent = component;
 
   return (
     <div>
@@ -35,18 +36,22 @@ const ModalCard = ({ image, title, titleModal, desModal, component }) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Modal"
-        className="modal absolute top-[10%] left-[5%] right-[5%] bottom-[10%] md:left-[200px] md:right-[200px] bg-[#f1f1f1] p-4 overflow-auto rounded shadow-lg overflow-x-hidden"
-        overlayClassName="fixed inset-0 bg-[rgba(49,49,49,0.8)] z-50 flex items-center justify-center overflow-x-hidden"
+        className="modal absolute top-[10%] left-[5%] right-[5%] bottom-[10%] md:left-[200px] md:right-[200px] bg-[#f1f1f1] rounded shadow-lg flex flex-col max-h-[90vh] overflow-hidden"
+        overlayClassName="fixed inset-0 bg-[rgba(49,49,49,0.8)] z-50 flex items-center justify-center"
       >
-        {DynamicComponent && <DynamicComponent />}
+        <div className="flex-1 overflow-y-auto p-4">
+          {component && component()}
+        </div>
 
-        <div className="sticky bottom-0 bg-white p-4 border-t text-right">
-          <button
-            onClick={closeModal}
-            className="btn-close mt-4 bg-gray-700 text-white px-4 py-2 rounded absolute bottom-4 right-4 hover:bg-gray-800"
-          >
-            Close
-          </button>
+        <div className="sticky bottom-0 left-0 w-full p-4 z-10">
+          <div className="flex justify-end">
+            <button
+              onClick={closeModal}
+              className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </ReactModal>
     </div>

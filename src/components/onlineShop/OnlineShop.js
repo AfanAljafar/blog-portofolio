@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import CardProduct from "./cardProduct/CardProduct";
+import ProductItem from "./ProductItem";
 
 const products = [
   { id: "baju", name: "Baju", price: "Rp 80.000", image: "/baju.jpg" },
@@ -30,12 +30,10 @@ const OnlineShop = () => {
 
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {products.map((product) => (
-          <CardProduct
+          <ProductItem
             key={product.id}
-            image={product.image}
-            productName={product.name}
-            productPrice={product.price}
-            onQuantityChange={(qty) => handleQuantityChange(product.id, qty)}
+            product={product}
+            onQuantityChange={handleQuantityChange}
           />
         ))}
       </div>

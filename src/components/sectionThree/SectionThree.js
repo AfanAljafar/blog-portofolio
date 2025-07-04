@@ -1,37 +1,39 @@
 import React, { forwardRef } from "react";
 import Card from "../card/Card";
+import miniProject from "../../assets/miniProject.png";
+import inProgress from "../../assets/in-progress.jpeg";
 
 const data = [
   {
     title: "Mini Project",
     content: "kompilasi mini project",
-    image: process.env.PUBLIC_URL + "/miniProject.png",
+    image: miniProject,
     path: "/mini-project",
   },
   {
     title: "Project 2",
     content: "dekripsi singkat project.",
-    image: "gambar 2",
+    image: inProgress,
   },
   {
     title: "Project 3",
     content: "dekripsi singkat project.",
-    image: "gambar 3",
+    image: inProgress,
   },
   {
     title: "Project 4",
     content: "dekripsi singkat project.",
-    image: "gambar 4",
+    image: inProgress,
   },
   {
     title: "Project 5",
     content: "dekripsi singkat project.",
-    image: "gambar 5",
+    image: inProgress,
   },
   {
     title: "Project 6",
     content: "dekripsi singkat project.",
-    image: "gambar 6",
+    image: inProgress,
   },
 ];
 

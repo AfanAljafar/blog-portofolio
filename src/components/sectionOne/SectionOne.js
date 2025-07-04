@@ -1,13 +1,15 @@
 import React, { forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Github, Instagram, Linkedin, Twitter, Download } from "lucide-react";
 // import ArrowDoubleDown from "../arrowDoubleDown/ArrowDoubleDown";
 import profileImage from "../../assets/profile-linkedin.jpg";
 
-const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
+const SectionOne = forwardRef((props, ref) => {
+  const navigate = useNavigate();
   return (
     <section
       ref={ref}
-      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[82px] md:pt-0 flex flex-col md:flex-row items-center justify-between gap-10 "
+      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[86px] md:pt-0 flex flex-col md:flex-row items-center justify-between gap-10 "
     >
       {/* LEFT CONTENT */}
       <div className="flex-1 text-white text-center md:text-left">
@@ -50,7 +52,7 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
             <Linkedin />
           </a>
           <a
-            href="https://twitter.com/username"
+            href="https://x.com/aljafarafan"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
@@ -62,7 +64,7 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
         {/* BUTTONS */}
         <div className="flex flex-col md:flex-row gap-4 mt-6 justify-center md:justify-start">
           <button
-            onClick={onScrollTo3}
+            onClick={() => navigate("/?section=projects")}
             className="bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-700 transition"
           >
             Explore My Project
@@ -102,27 +104,6 @@ const SectionOne = forwardRef(({ onScrollTo3 }, ref) => {
             alt="Profile"
             className="rounded-full w-full h-full object-cover shadow-lg"
           />
-          {/* ICONS AROUND */}
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-            <div className="bg-cyan-300 text-sky-950 p-2 rounded-full shadow-md">
-              💻
-            </div>
-          </div>
-          <div className="absolute top-1/2 -left-4 -translate-y-1/2">
-            <div className="bg-cyan-300 text-sky-950 p-2 rounded-full shadow-md">
-              ⚛️
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-            <div className="bg-cyan-300 text-sky-950 p-2 rounded-full shadow-md">
-              🛠️
-            </div>
-          </div>
-          <div className="absolute top-1/2 -right-4 -translate-y-1/2">
-            <div className="bg-cyan-300 text-sky-950 p-2 rounded-full shadow-md">
-              💾
-            </div>
-          </div>
         </div>
       </div>
     </section>

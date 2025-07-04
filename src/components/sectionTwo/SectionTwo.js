@@ -26,7 +26,7 @@ const SectionTwo = forwardRef((props, ref) => {
         </p>
       </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12">
-        {/* Kolom Kiri: Gambar Profil */}
+        {/* left column: profile picture */}
         <div className="flex-shrink-0 w-full md:w-2/3 lg:w-1/3 flex justify-center">
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <img
@@ -37,13 +37,14 @@ const SectionTwo = forwardRef((props, ref) => {
           </div>
         </div>
 
-        {/* Kolom Kanan: Konten Deskripsi & Info Pribadi */}
+        {/* right column: context description and personal info */}
         <div className="flex-grow w-full lg:w-2/3 text-gray-800">
-          {/* Bagian "Who Am I" dan "My Approach" */}
+          {/* section card */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Who Am I Card */}
+            {/* card 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center md:items-start md:text-left">
               <div className="bg-blue-600 text-white p-3 rounded-full mb-4">
+                {/*icon card */}
                 <Clock size={24} />
               </div>
               <h2 className="text-xl font-bold mb-2">Who Am I</h2>
@@ -54,11 +55,11 @@ const SectionTwo = forwardRef((props, ref) => {
               </p>
             </div>
 
-            {/* My Approach Card */}
+            {/* card 2*/}
             <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center md:items-start md:text-left">
               <div className="bg-blue-600 text-white p-3 rounded-full mb-4">
+                {/*icon card */}
                 <MapPin size={24} />{" "}
-                {/* Ikon ini sesuai gambar lebih ke arah location/map pin */}
               </div>
               <h2 className="text-xl font-bold mb-2">My Approach</h2>
               <p className="text-sm leading-relaxed">
@@ -69,7 +70,7 @@ const SectionTwo = forwardRef((props, ref) => {
             </div>
           </div>
 
-          {/* Bagian "Personal Info" */}
+          {/* Personal info */}
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-blue-600 text-white p-3 rounded-full">
@@ -79,7 +80,7 @@ const SectionTwo = forwardRef((props, ref) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 text-sm">
-              {/* Info Baris 1 */}
+              {/* info row 1 */}
               <div className="flex items-center gap-3">
                 <div className="text-blue-600">
                   <User size={18} />
@@ -99,7 +100,7 @@ const SectionTwo = forwardRef((props, ref) => {
                 </p>
               </div>
 
-              {/* Info Baris 2 */}
+              {/* info row 2 */}
               <div className="flex items-center gap-3">
                 <div className="text-blue-600">
                   <MapPin size={18} />
@@ -119,7 +120,7 @@ const SectionTwo = forwardRef((props, ref) => {
                 </p>
               </div>
 
-              {/* Info Baris 3 */}
+              {/* info row 3 */}
               <div className="flex items-center gap-3">
                 <div className="text-blue-600">
                   <Phone size={18} />
@@ -139,9 +140,8 @@ const SectionTwo = forwardRef((props, ref) => {
                 </p>
               </div>
 
-              {/* Info Baris 4 (GPA) */}
+              {/* info row 4 (ipk) */}
               <div className="flex items-center gap-3 col-span-1 sm:col-span-2">
-                {/* GPA mengambil seluruh lebar di mobile, tapi 2 kolom di sm ke atas */}
                 <div className="text-blue-600">
                   <Award size={18} />
                 </div>
@@ -154,29 +154,6 @@ const SectionTwo = forwardRef((props, ref) => {
         </div>
       </div>
     </section>
-    // <div
-    //
-    //   className="section-three flex flex-col min-h-screen bg-transparent"
-    // >
-    //   <div className="box-title-s3 flex w-full justify-center">
-    //     <h1 className="sect3Title mt-[25px] text-[60px]">about.</h1>
-    //   </div>
-    //   <p className="desc-about text-base p-[35px] text-center">
-    //     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus
-    //     leo vel ligula convallis, nec sodales ligula aliquam. Integer eu
-    //     venenatis risus, a aliquam velit. In hac habitasse platea dictumst.
-    //     Curabitur laoreet, nibh non congue malesuada, justo metus ultrices enim,
-    //     eu hendrerit nibh risus vitae augue. Vivamus porttitor tortor non tellus
-    //     ornare pretium. Fusce commodo, nunc ornare pellentesque viverra, ante
-    //     est volutpat justo, at luctus felis odio at felis. Vivamus dolor arcu,
-    //     imperdiet eu urna sit amet, bibendum tempor augue. Nam tincidunt ante in
-    //     odio tempus porttitor. Nam faucibus lobortis diam, quis consectetur
-    //     nulla aliquam eget. Class aptent taciti sociosqu ad litora torquent per
-    //     conubia nostra, per inceptos himenaeos. Nulla eleifend turpis ac mi
-    //     pellentesque, at auctor risus vehicula. Sed ornare nisi leo, id maximus
-    //     massa scelerisque non.
-    //   </p>
-    // </div>
   );
 });
 

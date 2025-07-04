@@ -9,13 +9,12 @@ const Header = ({ titleHeader, linkMenu = [] }) => {
   return (
     <div className="fixed top-0 w-full z-50 bg-sky-950 drop-shadow-[0_6px_6px_rgba(0,255,255,0.5)]">
       <div className="flex items-center justify-between px-8 py-4">
-        {/* Logo + Title */}
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="h-[40px] w-auto" />
           <h1 className="text-white ml-2">{titleHeader}</h1>
         </div>
 
-        {/* Desktop Menu */}
+        {/* desktop menu */}
         <nav className="hidden md:flex space-x-8 font-medium text-sm text-white">
           {linkMenu.map(({ label, onClick }) => (
             <li
@@ -28,7 +27,7 @@ const Header = ({ titleHeader, linkMenu = [] }) => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* mobile menu button */}
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -40,7 +39,7 @@ const Header = ({ titleHeader, linkMenu = [] }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* mobile menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col items-start px-8 pb-4 text-white">
           {linkMenu.map(({ label, onClick }) => (
