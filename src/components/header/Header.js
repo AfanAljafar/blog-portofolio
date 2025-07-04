@@ -1,39 +1,63 @@
-import ArrowDoubleDown from "../arrowDoubleDown/ArrowDoubleDown";
-import "./Header.css";
+import React, { useState } from "react";
+import logo from "../../assets/space-planet-white.png";
+import { Menu, X } from "lucide-react";
 
-const Header = ({
-  onScrollTo2,
-  onScrollTo3,
-  onScrollTo4,
-  link1,
-  link2,
-  link3,
-  logoBrand,
-  profileDesc,
-}) => {
+const Header = ({ titleHeader, linkMenu = [] }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <div className="header-sect">
-      <h1 className="header-title">{logoBrand}</h1>
-      <ul className="list-header">
-        <li onClick={onScrollTo2}>{link1}</li>
-        <li onClick={onScrollTo3}>{link2}</li>
-        <li onClick={onScrollTo4}>{link3}</li>
-      </ul>
-      <p className="summary">{profileDesc}</p>
-      <div>
-        <button className="btn-arrow" onClick={onScrollTo2}>
-          {/* <img
-            src="/arrow-down-white.svg"
-            alt="arrow-down"
-            className="arrow-nav"
-          /> */}
-          <ArrowDoubleDown />
-        </button>
+    <div className="fixed top-0 w-full z-50 bg-sky-950 drop-shadow-[0_6px_6px_rgba(0,255,255,0.5)]">
+      <div className="flex items-center justify-between px-8 py-4">
+        <div className="flex items-center">
+          <img src={logo} alt="Logo" className="h-[40px] w-auto" />
+          <h1 className="text-white ml-2">{titleHeader}</h1>
+        </div>
+
+        {/* desktop menu */}
+        <nav className="hidden md:flex space-x-8 font-medium text-sm text-white">
+          {linkMenu.map(({ label, onClick }) => (
+            <li
+              key={label}
+              className="list-none cursor-pointer hover:text-sky-400"
+              onClick={onClick}
+            >
+              {label}
+            </li>
+          ))}
+        </nav>
+
+        {/* mobile menu button */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+            className="text-white"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* mobile menu */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col items-start px-8 pb-4 text-white">
+          {linkMenu.map(({ label, onClick }) => (
+            <button
+              key={label}
+              onClick={() => {
+                setIsOpen(false);
+                onClick?.(); // only call if onClick exists
+              }}
+              className="py-2 text-left w-full hover:text-sky-400"
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
-
-Header.displayName = "Header";
 
 export default Header;

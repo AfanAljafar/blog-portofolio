@@ -1,6 +1,6 @@
 {
-  "name": "ynoir",
-  "homepage": "https://AfanAljafar.github.io/ynoir",
+  "name": "blog-portofolio",
+  "homepage": "https://AfanAljafar.github.io/blog-portofolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,12 +8,16 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
     "gh-pages": "^6.3.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "lucide-react": "^0.525.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
     "react-router-dom": "^7.6.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "serve": "^14.2.4",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.22"
@@ -24,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node server/index.js"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +48,23 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AfanAljafar/blog-portofolio.git"
+  },
+  "keywords": [],
+  "author": "Muhammad Afan Aljafar <muhammadafanaljafar@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AfanAljafar/blog-portofolio/issues"
   }
 }

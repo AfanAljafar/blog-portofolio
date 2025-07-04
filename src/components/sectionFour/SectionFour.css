@@ -1,4 +1,4 @@
-.section-four {
+/* .section-four {
   display: flex;
   min-height: 100vh;
   background-color: transparent;
@@ -63,4 +63,49 @@ button {
 
 button:hover {
   opacity: 0.9;
+} */
+/* SectionFour.css */
+
+.section-four {
+  @apply flex min-h-screen bg-transparent flex-col;
+}
+
+.box-title-s4 {
+  @apply flex w-full justify-center;
+}
+
+.sect4Title {
+  @apply mt-[50px] text-[60px];
+}
+
+.contact-form {
+  @apply max-w-[600px] my-[50px] mx-auto;
+}
+
+form {
+  @apply flex flex-col gap-[20px];
+}
+
+.form-row {
+  @apply grid grid-cols-2 gap-[20px];
+}
+
+.form-grup {
+  @apply flex flex-col;
+}
+
+label {
+  @apply mb-2 text-sm;
+}
+
+textarea {
+  @apply resize-y;
+}
+
+.form-actions {
+  @apply flex justify-end;
+}
+
+button {
+  @apply bg-[whitesmoke] text-black px-[30px] py-[10px] text-sm border-none capitalize hover:opacity-90;
 }
