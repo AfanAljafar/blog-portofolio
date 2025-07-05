@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/blog-portofolio/static/css/main.63ee60c6.css",
-    "main.js": "/blog-portofolio/static/js/main.0bb7fef4.js",
+    "main.css": "/blog-portofolio/static/css/main.7850d043.css",
+    "main.js": "/blog-portofolio/static/js/main.d86ea3a9.js",
     "static/js/453.1eab2578.chunk.js": "/blog-portofolio/static/js/453.1eab2578.chunk.js",
+    "static/media/pupukKujang.png": "/blog-portofolio/static/media/pupukKujang.58b6070aae92699ade67.png",
     "static/media/space-planet-white.png": "/blog-portofolio/static/media/space-planet-white.985b12dbe7b6d24bf69f.png",
+    "static/media/TSS.png": "/blog-portofolio/static/media/TSS.8e8d840bdbee772fd568.png",
+    "static/media/MKIR.png": "/blog-portofolio/static/media/MKIR.db6b765fed1e5999d2c6.png",
+    "static/media/nodejs.png": "/blog-portofolio/static/media/nodejs.579ca3036af29c561c41.png",
     "static/media/in-progress.jpeg": "/blog-portofolio/static/media/in-progress.a40871fc8eb977b52818.jpeg",
     "static/media/profile-linkedin.jpg": "/blog-portofolio/static/media/profile-linkedin.f7e205426b0d503f3a6b.jpg",
+    "static/media/TelU.png": "/blog-portofolio/static/media/TelU.c52aabcac91d57cc9c5f.png",
+    "static/media/Telkom.png": "/blog-portofolio/static/media/Telkom.7b92300faca65e9c225c.png",
     "index.html": "/blog-portofolio/index.html",
-    "main.63ee60c6.css.map": "/blog-portofolio/static/css/main.63ee60c6.css.map",
-    "main.0bb7fef4.js.map": "/blog-portofolio/static/js/main.0bb7fef4.js.map",
+    "main.7850d043.css.map": "/blog-portofolio/static/css/main.7850d043.css.map",
+    "main.d86ea3a9.js.map": "/blog-portofolio/static/js/main.d86ea3a9.js.map",
     "453.1eab2578.chunk.js.map": "/blog-portofolio/static/js/453.1eab2578.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63ee60c6.css",
-    "static/js/main.0bb7fef4.js"
+    "static/css/main.7850d043.css",
+    "static/js/main.d86ea3a9.js"
   ]
 }
