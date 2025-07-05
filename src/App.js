@@ -98,9 +98,14 @@ function App() {
         </Routes>
       </div>
       <Footer
-        credit={
-          "© 2025 by Afan Aljafar. Powered and secured by portofolio space"
-        }
+        credit={"© 2025 by Afan Aljafar.\nPowered and secured by portofolio space"
+          .split("\n")
+          .map((line, index) => (
+            <span key={index}>
+              {line}
+              <br />
+            </span>
+          ))}
       />
     </>
   );
