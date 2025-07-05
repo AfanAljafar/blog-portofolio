@@ -70,7 +70,7 @@ const SectionOne = forwardRef((props, ref) => {
             Explore My Project
           </button>
           <a
-            href={`${process.env.PUBLIC_URL}/Curriculum-Vitae-Muhammad-Afan-Aljafar.pdf~`}
+            href={`${process.env.PUBLIC_URL}/Curriculum-Vitae-Muhammad-Afan-Aljafar.pdf`}
             download
             className="border border-cyan-400 text-cyan-400 py-2 px-4 rounded hover:bg-cyan-700 flex items-center gap-2 transition"
           >
