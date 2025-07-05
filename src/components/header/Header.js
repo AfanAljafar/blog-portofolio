@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/space-planet-white.png";
 import { Menu, X } from "lucide-react";
 
-const Header = ({ titleHeader, linkMenu = [] }) => {
+const Header = ({ label, onClick, titleHeader, linkMenu = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navigate = useNavigate();
 
   return (
     <div className="fixed top-0 w-full z-50 bg-sky-950 drop-shadow-[0_6px_6px_rgba(0,255,255,0.5)]">
       <div className="flex items-center justify-between px-8 py-4">
-        <div className="flex items-center">
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate("/?scrollTo=sectionOne")}
+        >
           <img src={logo} alt="Logo" className="h-[40px] w-auto" />
           <h1 className="text-white ml-2">{titleHeader}</h1>
         </div>

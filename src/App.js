@@ -20,7 +20,7 @@ function App() {
       home: sectionHomeRef,
       about: section2Ref,
       projects: section3Ref,
-      contact: section4Ref,
+      experience: section4Ref,
     };
     map[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -49,6 +49,7 @@ function App() {
     },
     {
       label: "Experience",
+      onClick: () => navigate("/?section=experience"),
     },
     {
       label: "Skills",
