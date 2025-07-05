@@ -4,8 +4,19 @@ import SectionOne from "../../components/sectionOne/SectionOne";
 import SectionTwo from "../../components/sectionTwo/SectionTwo";
 import SectionThree from "../../components/sectionThree/SectionThree";
 import SectionFour from "../../components/sectionFour/SectionFour";
+import SectionFive from "../../components/sectionFive/SectionFive";
+import SectionSix from "../../components/sectionSix/SectionSix";
+import SectionSeven from "../../components/sectionSeven/SectionSeven";
 
-const Home = ({ sectionHomeRef, section2Ref, section3Ref, section4Ref }) => {
+const Home = ({
+  sectionHomeRef,
+  section2Ref,
+  section3Ref,
+  section4Ref,
+  section5Ref,
+  section6Ref,
+  section7Ref,
+}) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -26,6 +37,9 @@ const Home = ({ sectionHomeRef, section2Ref, section3Ref, section4Ref }) => {
       <SectionTwo ref={section2Ref} />
       <SectionThree ref={section3Ref} />
       <SectionFour ref={section4Ref} />
+      <SectionFive ref={section5Ref} />
+      <SectionSix ref={section6Ref} />
+      <SectionSeven ref={section7Ref} />
     </div>
   );
 };

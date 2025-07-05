@@ -34,11 +34,14 @@ const Header = ({ label, onClick, titleHeader, linkMenu = [] }) => {
         </nav>
 
         {/* mobile menu button */}
-        <div className="md:hidden">
+        <div
+          className="md:hidden
+"
+        >
           <button
             onClick={toggleMenu}
             aria-label="Toggle Menu"
-            className="text-white"
+            className="text-white bg-sky-950"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -47,7 +50,7 @@ const Header = ({ label, onClick, titleHeader, linkMenu = [] }) => {
 
       {/* mobile menu */}
       {isOpen && (
-        <div className="md:hidden flex flex-col items-start px-8 pb-4 text-white">
+        <div className="md:hidden flex flex-col items-start px-8 pb-4 text-white ">
           {linkMenu.map(({ label, onClick }) => (
             <button
               key={label}
@@ -55,7 +58,7 @@ const Header = ({ label, onClick, titleHeader, linkMenu = [] }) => {
                 setIsOpen(false);
                 onClick?.(); // only call if onClick exists
               }}
-              className="py-2 text-left w-full hover:text-sky-400"
+              className="py-2 text-left w-full text-white hover:text-sky-400 bg-sky-950"
             >
               {label}
             </button>

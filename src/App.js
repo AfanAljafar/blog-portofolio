@@ -2,6 +2,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
+import Footer from "./components/footer/Footer";
 import MiniProject from "./pages/miniProject/MiniProject";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
+  const section5Ref = useRef(null);
+  const section6Ref = useRef(null);
+  const section7Ref = useRef(null);
 
   // Scroll function based on id string
   const scrollToSection = (section) => {
@@ -21,6 +25,9 @@ function App() {
       about: section2Ref,
       projects: section3Ref,
       experience: section4Ref,
+      skills: section5Ref,
+      testimonials: section6Ref,
+      contact: section7Ref,
     };
     map[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -53,9 +60,11 @@ function App() {
     },
     {
       label: "Skills",
+      onClick: () => navigate("/?section=skills"),
     },
     {
       label: "Testimonials",
+      onClick: () => navigate("/?section=testimonials"),
     },
     {
       label: "Contact",
@@ -76,6 +85,9 @@ function App() {
                 section2Ref={section2Ref}
                 section3Ref={section3Ref}
                 section4Ref={section4Ref}
+                section5Ref={section5Ref}
+                section6Ref={section6Ref}
+                section7Ref={section7Ref}
               />
             }
           />
@@ -85,6 +97,11 @@ function App() {
           />
         </Routes>
       </div>
+      <Footer
+        credit={
+          "© 2025 by Afan Aljafar. Powered and secured by portofolio space"
+        }
+      />
     </>
   );
 }
