@@ -104,7 +104,7 @@ const SectionThree = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="relative section-three w-screen min-h-screen pt-[82px] md:pt-[76px] px-4 md:px-10 py-10 bg-transparent"
+      className="relative min-w-screen min-h-screen pt-[72px] md:pt-[76px] px-4 md:px-10"
     >
       <div className="text-center mb-6">
         <h1 className="text-white text-4xl md:text-5xl font-bold">projects.</h1>

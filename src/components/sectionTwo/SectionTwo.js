@@ -13,10 +13,7 @@ import profileImage from "../../assets/profile-linkedin.jpg";
 
 const SectionTwo = forwardRef((props, ref) => {
   return (
-    <section
-      ref={ref}
-      className="min-w-screen min-h-screen pt-[72px] px-[30px]"
-    >
+    <section ref={ref} className="min-w-screen min-h-screen pt-[72px] px-4">
       <div className="flex flex-col m-[20px]">
         <h1 className="text-3xl md:text-4xl font-bold text-white text-center">
           Aboute Me
@@ -146,7 +143,7 @@ const SectionTwo = forwardRef((props, ref) => {
                   <Award size={18} />
                 </div>
                 <p>
-                  <span className="font-semibold">GPA:</span> 3.55 / 4.00
+                  <span className="font-semibold">GPA:</span> 2.89 / 4.00
                 </p>
               </div>
             </div>
