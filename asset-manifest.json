@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/blog-portofolio/static/css/main.7850d043.css",
-    "main.js": "/blog-portofolio/static/js/main.d86ea3a9.js",
+    "main.css": "/blog-portofolio/static/css/main.de010ff3.css",
+    "main.js": "/blog-portofolio/static/js/main.da2a102a.js",
     "static/js/453.1eab2578.chunk.js": "/blog-portofolio/static/js/453.1eab2578.chunk.js",
     "static/media/pupukKujang.png": "/blog-portofolio/static/media/pupukKujang.58b6070aae92699ade67.png",
     "static/media/space-planet-white.png": "/blog-portofolio/static/media/space-planet-white.985b12dbe7b6d24bf69f.png",
@@ -13,12 +13,12 @@
     "static/media/TelU.png": "/blog-portofolio/static/media/TelU.c52aabcac91d57cc9c5f.png",
     "static/media/Telkom.png": "/blog-portofolio/static/media/Telkom.7b92300faca65e9c225c.png",
     "index.html": "/blog-portofolio/index.html",
-    "main.7850d043.css.map": "/blog-portofolio/static/css/main.7850d043.css.map",
-    "main.d86ea3a9.js.map": "/blog-portofolio/static/js/main.d86ea3a9.js.map",
+    "main.de010ff3.css.map": "/blog-portofolio/static/css/main.de010ff3.css.map",
+    "main.da2a102a.js.map": "/blog-portofolio/static/js/main.da2a102a.js.map",
     "453.1eab2578.chunk.js.map": "/blog-portofolio/static/js/453.1eab2578.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7850d043.css",
-    "static/js/main.d86ea3a9.js"
+    "static/css/main.de010ff3.css",
+    "static/js/main.da2a102a.js"
   ]
 }
