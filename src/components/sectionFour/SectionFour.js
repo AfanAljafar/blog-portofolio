@@ -54,7 +54,7 @@ const SectionFour = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="min-w-screen min-h-screen pt-[72px] md:pt-[76px] px-4 md:px-10"
+      className="min-w-screen min-h-screen pt-[72px] px-4 md:px-10"
     >
       <div className="text-center mb-10">
         <h1 className="text-white text-4xl md:text-5xl font-bold">
@@ -64,7 +64,7 @@ const SectionFour = forwardRef((props, ref) => {
 
       {/* Timeline */}
       <div className="overflow-x-auto md:overflow-visible">
-        <div className="flex md:grid gap-6 md:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-items-center px-4">
+        <div className="flex md:grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-items-center px-4">
           {timelineData.map((item, index) => (
             <div
               key={index}
@@ -92,12 +92,12 @@ const SectionFour = forwardRef((props, ref) => {
               </div>
 
               {/* Deskripsi hover (desktop only) */}
-              <div className="whitespace-pre-line text-center items-center justifiy-center text-xl font-bold hidden h-[230px] md:flex scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 absolute bottom-0 left-0 right-0 bg-sky-800 text-xs text-gray-100 p-3 rounded shadow-lg ring-1 ring-cyan-400/20 transition-all duration-500 ease-in-out">
+              <div className="whitespace-pre-line text-center items-center justifiy-center font-bold hidden h-[230px] md:flex scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 absolute bottom-0 left-0 right-0 bg-sky-800 text-xs text-gray-100 p-3 rounded shadow-lg ring-1 ring-cyan-400/20 transition-all duration-500 ease-in-out">
                 {item.description}
               </div>
 
               {/* Deskripsi default (mobile only) */}
-              <div className="whitespace-pre-line h-[200px] overflow-hidden text-xl text-center items-center justifiy-center font-bold block md:hidden mt-2 bg-sky-800 text-xs text-gray-100 p-2 rounded">
+              <div className="whitespace-pre-line h-[200px] overflow-hidden text-center items-center justifiy-center font-bold block md:hidden mt-2 bg-sky-800 text-xs text-gray-100 p-2 rounded">
                 {item.description}
               </div>
             </div>

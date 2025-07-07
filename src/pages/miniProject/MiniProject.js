@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import ModalCard from "../../components/modal/ModalCard";
+import ModalCard from "../../components/modalMiniProject/ModalCard";
 import OnlineShop from "../../components/onlineShop/OnlineShop";
 import SignUpForm from "../../components/signUpForm/SignUpForm";
 import TodoApp from "../../components/toDoApp/ToDoApp";
-
 import UnitsConverter from "../../components/unitsConverter/UnitsConverter";
 
 const MiniProject = ({ todos, setTodos }) => {

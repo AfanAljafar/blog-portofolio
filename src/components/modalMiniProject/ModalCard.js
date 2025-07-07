@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import ReactModal from "react-modal";
-// import TodoApp from "../toDoList/ToDoApp";
 
 ReactModal.setAppElement("#root");
 
