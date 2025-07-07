@@ -67,7 +67,7 @@ const SectionThree = forwardRef((props, ref) => {
     const container = scrollRef.current;
     if (!container) return;
 
-    let scrollAmount = 1; // ← scroll lebar per langkah
+    let scrollAmount = 1;
     let direction = 1;
 
     const scroll = () => {
@@ -85,14 +85,13 @@ const SectionThree = forwardRef((props, ref) => {
       }
     };
 
-    const interval = setInterval(scroll, 2000); // ← bisa sesuaikan kecepatan
+    const interval = setInterval(scroll, 2000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  // Manual scroll handler
   const handleScroll = (direction) => {
     const container = scrollRef.current;
-    const scrollOffset = 300; // px tiap klik
+    const scrollOffset = 300;
     if (container) {
       container.scrollBy({
         left: direction === "left" ? -scrollOffset : scrollOffset,
@@ -104,48 +103,54 @@ const SectionThree = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="relative section-three w-screen min-h-screen pt-[82px] md:pt-[76px] px-4 md:px-10 py-10 bg-transparent"
+      className="relative min-w-screen h-fit pt-[72px] px-4 md:px-10"
     >
       <div className="text-center mb-6">
         <h1 className="text-white text-4xl md:text-5xl font-bold">projects.</h1>
       </div>
 
-      {/* Tombol panah kiri */}
-      <button
-        onClick={() => handleScroll("left")}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
-      >
-        <ChevronLeft size={24} />
-      </button>
-
-      {/* Tombol panah kanan */}
-      <button
-        onClick={() => handleScroll("right")}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
-      >
-        <ChevronRight size={24} />
-      </button>
-
-      {/* Carousel */}
+      {/* ✅ Mulai perubahan di sini */}
       <div
-        ref={scrollRef}
+        className="relative" // ✅ Tambah relative agar tombol bisa absolute di dalamnya
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="overflow-x-auto px-4 scroll-smooth scrollbar-hide"
       >
-        <div className="grid grid-flow-col auto-cols-[minmax(250px,_1fr)] grid-rows-2 gap-x-6 gap-y-6 min-w-max pb-4">
-          {[...data, ...data].map((item, index) => (
-            <div key={index} className="w-full h-full">
-              <Card
-                title={item.title}
-                content={item.content}
-                image={item.image}
-                path={item.path}
-              />
-            </div>
-          ))}
+        {/* ✅ Tombol kiri di dalam scope carousel */}
+        <button
+          onClick={() => handleScroll("left")}
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        {/* ✅ Tombol kanan di dalam scope carousel */}
+        <button
+          onClick={() => handleScroll("right")}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* ✅ Box carousel yang bisa discroll */}
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto scroll-smooth scrollbar-hide px-8"
+        >
+          <div className="grid grid-flow-col auto-cols-[minmax(250px,_1fr)] grid-rows-2 gap-x-6 gap-y-6 min-w-max pb-4">
+            {[...data, ...data].map((item, index) => (
+              <div key={index} className="w-full h-full">
+                <Card
+                  title={item.title}
+                  content={item.content}
+                  image={item.image}
+                  path={item.path}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+      {/* ✅ Akhir perubahan */}
     </section>
   );
 });

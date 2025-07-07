@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Github, Instagram, Linkedin, Twitter, Download } from "lucide-react";
-// import ArrowDoubleDown from "../arrowDoubleDown/ArrowDoubleDown";
 import profileImage from "../../assets/profile-linkedin.jpg";
 
 const SectionOne = forwardRef((props, ref) => {
@@ -9,20 +8,14 @@ const SectionOne = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[86px] md:pt-0 flex flex-col md:flex-row items-center justify-between gap-10 "
+      className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[86px] flex flex-col md:flex-row items-center justify-between gap-10 "
     >
       {/* LEFT CONTENT */}
       <div className="flex-1 text-white text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Hi, I'm Afan Aljafar 👋
-        </h1>
-        <p className="text-lg mt-2 text-cyan-300 font-medium">
-          Junior Fullstack Developer
-        </p>
-        <p className="mt-4 text-sky-100 max-w-md mx-auto md:mx-0">
-          I build modern, responsive web apps with clean UI and smooth UX
-          blending design and code to create experiences that feel intuitive,
-          fast, and delightful to use.
+        <h1 className="text-4xl md:text-5xl font-bold">{props.intro}</h1>
+        <p className="text-lg mt-2 text-cyan-300 font-medium">{props.role}</p>
+        <p className="whitespace-pre-line mt-4 text-sky-100 max-w-full mx-auto md:mx-0 md:text-justify">
+          {props.summary}
         </p>
 
         {/* SOCIAL ICONS */}
@@ -83,19 +76,21 @@ const SectionOne = forwardRef((props, ref) => {
         {/* QUICK STATS */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 text-sm text-center md:text-left">
           <div>
-            <p className="font-bold text-white">less than 1 Years</p>
-            <p className="text-cyan-200">Experience</p>
+            <p className="font-bold text-white">
+              {props.programmingExperience}
+            </p>
+            <p className="text-cyan-200">Programming Experience</p>
           </div>
           <div>
-            <p className="font-bold text-white">JavaScript, Python</p>
+            <p className="font-bold text-white">{props.mainLang}</p>
             <p className="text-cyan-200">Main Language</p>
           </div>
           <div>
-            <p className="font-bold text-white">10+ Projects</p>
+            <p className="font-bold text-white">{props.totalProjects}</p>
             <p className="text-cyan-200">Total Projects</p>
           </div>
           <div>
-            <p className="font-bold text-white">2.89 / 4.00</p>
+            <p className="font-bold text-white">{props.gpa}</p>
             <p className="text-cyan-200">GPA</p>
           </div>
         </div>

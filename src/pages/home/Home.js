@@ -33,7 +33,19 @@ const Home = ({
   }, []);
   return (
     <div className="home text-antiquewhite bg-sky-950 bg-repeat">
-      <SectionOne ref={sectionHomeRef} />
+      <SectionOne
+        intro={"Hi, I'm Afan Aljafar 👋"}
+        role={"Junior Fullstack Developer"}
+        summary={`I’m a Bachelor of Electrical and Electronic Engineering graduate from Telkom University (2021) with a strong interest in technology, systems development, and innovation.
+          Experienced as a Sales Engineer at PT Tayoh Sarana Sukses (2025), Engineering and Maintenance Unit Head 'Glaze Application section' at PT. Mulia Keramik Indah Raya (2023).
+          I am transitioning from a career in Maintenance and Sales Engineering to Full-Stack Development or Software and Hardware Programming.
+          `}
+        programmingExperience={"less than 1 Years"}
+        mainLang={"JavaScript, Python"}
+        totalProjects={"10+ Projects"}
+        gpa={"2.89 / 4.00"}
+        ref={sectionHomeRef}
+      />
       <SectionTwo ref={section2Ref} />
       <SectionThree ref={section3Ref} />
       <SectionFour ref={section4Ref} />
