@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/blog-portofolio/static/css/main.93253d73.css",
-    "main.js": "/blog-portofolio/static/js/main.e6e288c3.js",
+    "main.js": "/blog-portofolio/static/js/main.c0e06f69.js",
     "static/js/453.07cc81e6.chunk.js": "/blog-portofolio/static/js/453.07cc81e6.chunk.js",
     "static/media/pupukKujang.png": "/blog-portofolio/static/media/pupukKujang.58b6070aae92699ade67.png",
     "static/media/space-planet-white.png": "/blog-portofolio/static/media/space-planet-white.985b12dbe7b6d24bf69f.png",
@@ -32,11 +32,11 @@
     "static/media/Telkom.png": "/blog-portofolio/static/media/Telkom.7b92300faca65e9c225c.png",
     "index.html": "/blog-portofolio/index.html",
     "main.93253d73.css.map": "/blog-portofolio/static/css/main.93253d73.css.map",
-    "main.e6e288c3.js.map": "/blog-portofolio/static/js/main.e6e288c3.js.map",
+    "main.c0e06f69.js.map": "/blog-portofolio/static/js/main.c0e06f69.js.map",
     "453.07cc81e6.chunk.js.map": "/blog-portofolio/static/js/453.07cc81e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93253d73.css",
-    "static/js/main.e6e288c3.js"
+    "static/js/main.c0e06f69.js"
   ]
 }
