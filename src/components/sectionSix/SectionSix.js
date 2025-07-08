@@ -62,6 +62,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     if (error) {
       console.error("Fetch failed:", error.message);
     } else {
+      console.log("Fetched testimonials:", data); // 👈 tambahkan ini
       setTestimonials(data);
     }
   };
