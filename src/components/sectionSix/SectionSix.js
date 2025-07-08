@@ -3,32 +3,9 @@ import TestimonialCard from "./testimonialCard/TestimonialCard";
 import ReactModal from "react-modal";
 import { MessageSquareDiff, Star } from "lucide-react";
 import { supabase } from "../../utils/supabase";
+import RatingInput from "./ratingInput/RatingInput";
 
 ReactModal.setAppElement("#root");
-
-// const testimonials = [
-//   {
-//     quote: "Woi wkwokw lawak mode dark lu",
-//     name: "Johan",
-//     role: "Developer",
-//     initial: "JO",
-//     rating: 5,
-//   },
-//   {
-//     quote: "Bagi bg please",
-//     name: "Tutor dong abangku",
-//     role: "Developer",
-//     initial: "TA",
-//     rating: 5,
-//   },
-//   {
-//     quote: "Bagi dong",
-//     name: "Tutor abangku",
-//     role: "Developer",
-//     initial: "Az",
-//     rating: 3,
-//   },
-// ];
 
 const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
   const [form, setForm] = useState({
@@ -36,6 +13,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     email: "",
     position: "",
     testimonial: "",
+    rating: 5,
   });
   const trimmedForm = {
     ...form,
@@ -43,6 +21,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     email: form.email.trim().toLowerCase(),
     position: form.position.trim(),
     testimonial: form.testimonial.trim(),
+    rating: form.rating,
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -72,7 +51,11 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
   }, []);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: name === "rating" ? Number(value) : value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -90,9 +73,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
       return;
     }
 
-    const { data, error } = await supabase
-      .from("testimonials")
-      .insert([trimmedForm]);
+    const { error } = await supabase.from("testimonials").insert([trimmedForm]);
 
     if (error) {
       console.error("Insert failed:", error.message);
@@ -116,92 +97,23 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     setIsSubmitting(false);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-
-  //   if (
-  //     !trimmedForm.name ||
-  //     !trimmedForm.email ||
-  //     !trimmedForm.position ||
-  //     form.testimonial.length < 10
-  //   ) {
-  //     setError("Please complete all fields with valid content.");
-  //     return;
-  //   }
-  //   if (!form.name || !form.email || !form.position) {
-  //     setError("All fields are required");
-  //     return;
-  //   }
-
-  //   const { data, error } = await supabase
-  //     .from("testimonials")
-  //     .insert([trimmedForm]);
-  //   console.log("Insert result:", data);
-
-  //   if (error) {
-  //     console.error("Insert failed:", error.message);
-  //     alert("Failed to send message");
-  //   } else {
-  //     alert("Message sent successfully!");
-  //     setForm({
-  //       name: "",
-  //       email: "",
-  //       position: "",
-  //       testimonial: "",
-  //     });
-  //     setError("");
-  //     await fetchTestimonials();
-
-  //     // setelah insert selesai:
-  //   }
-  //   if (!data || data.length === 0) {
-  //     alert("No data returned from Supabase!");
-  //     return;
-  //   }
-
-  //   // addTestimonial(form);
-  //   if (onSubmit) onSubmit(form);
-  //   // onSubmit(form);
-  //   closeModal();
-  //   setIsSubmitting(false);
-  // };
-
-  // const addTestimonial = (data) => {
-  //   const newItem = {
-  //     quote: data.testimonial,
-  //     name: data.name,
-  //     role: data.position,
-  //     initial: data.name
-  //       .split(" ")
-  //       .map((n) => n[0])
-  //       .join("")
-  //       .toUpperCase(),
-  //     rating: 5,
-  //   };
-  //   setTestimonials((prev) => [...prev, newItem]);
-  // };
-
   return (
     <section
       ref={ref}
       className="section-four w-screen min-h-screen pt-[72px] px-4 md:px-10 py-10 bg-transparent"
     >
       <div className="text-center mb-4">
-        <h1 className="text-white text-4xl md:text-5xl font-bold mb-1">
-          What People Say
+        <h1 className="text-white text-3xl md:text-4xl font-bold mb-1">
+          {props.testimonialTitle}
         </h1>
-        <p className="text-white">
-          Voices from clients, collaborators, and friends who have experienced
-          my work
-        </p>
+        <p className="text-white">{props.testimonialTagLine}</p>
       </div>
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center space-x-2">
             <span>
-              <Star />
+              <Star size={16} strokeWidth={3} />
             </span>
             <h2 className="text-xl font-semibold">Testimonials</h2>
           </div>
@@ -209,12 +121,12 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
             onClick={openModal}
             className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700"
           >
-            <MessageSquareDiff size={24} />
+            <MessageSquareDiff size={16} strokeWidth={3} />
             Add Testimonial
           </button>
         </div>
 
-        {/* Testimonial List (scrollable if long) */}
+        {/* testimonial list */}
         <div className="max-h-[320px] overflow-y-auto pr-2">
           {testimonials.map((item, i) => (
             <TestimonialCard
@@ -227,7 +139,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
                 .map((n) => n[0])
                 .join("")
                 .toUpperCase()}
-              rating={5}
+              rating={item.rating}
             />
           ))}
         </div>
@@ -236,7 +148,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="addTestimonial"
-        className="relative w-full max-w-lg mx-auto bg-white rounded-xl p-6 shadow-xl flex flex-col space-y-4 max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-lg mx-auto bg-white rounded-xl p-6 shadow-xl flex flex-col space-y-1 max-h-[90vh] overflow-y-auto"
         overlayClassName="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4"
       >
         {/* Title */}
@@ -249,7 +161,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
 
         {/* Form */}
         <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
+          <div className="space-y-2">
             <input
               type="text"
               name="name"
@@ -284,12 +196,24 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
               } bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400`}
               rows={4}
             />
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Rating
+              </label>
+              <RatingInput
+                value={form.rating}
+                onChange={(newRating) =>
+                  setForm({ ...form, rating: newRating })
+                }
+              />
+            </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
 
           {/* Actions */}
           <div className="flex justify-between gap-2 pt-2">
             <button
+              type="button"
               onClick={closeModal}
               className="w-1/2 border border-gray-300 rounded-md py-2 hover:bg-gray-100"
             >
