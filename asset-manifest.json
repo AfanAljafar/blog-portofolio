@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/blog-portofolio/static/css/main.93253d73.css",
-    "main.js": "/blog-portofolio/static/js/main.ae9e8c19.js",
+    "main.css": "/blog-portofolio/static/css/main.d49baa7a.css",
+    "main.js": "/blog-portofolio/static/js/main.9564860d.js",
     "static/js/453.07cc81e6.chunk.js": "/blog-portofolio/static/js/453.07cc81e6.chunk.js",
     "static/media/pupukKujang.png": "/blog-portofolio/static/media/pupukKujang.58b6070aae92699ade67.png",
     "static/media/space-planet-white.png": "/blog-portofolio/static/media/space-planet-white.985b12dbe7b6d24bf69f.png",
@@ -31,12 +31,12 @@
     "static/media/mongodb-atlas.png": "/blog-portofolio/static/media/mongodb-atlas.e7a84764fc9c1440eae6.png",
     "static/media/Telkom.png": "/blog-portofolio/static/media/Telkom.7b92300faca65e9c225c.png",
     "index.html": "/blog-portofolio/index.html",
-    "main.93253d73.css.map": "/blog-portofolio/static/css/main.93253d73.css.map",
-    "main.ae9e8c19.js.map": "/blog-portofolio/static/js/main.ae9e8c19.js.map",
+    "main.d49baa7a.css.map": "/blog-portofolio/static/css/main.d49baa7a.css.map",
+    "main.9564860d.js.map": "/blog-portofolio/static/js/main.9564860d.js.map",
     "453.07cc81e6.chunk.js.map": "/blog-portofolio/static/js/453.07cc81e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93253d73.css",
-    "static/js/main.ae9e8c19.js"
+    "static/css/main.d49baa7a.css",
+    "static/js/main.9564860d.js"
   ]
 }
