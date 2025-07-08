@@ -1,7 +1,8 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import TestimonialCard from "./testimonialCard/TestimonialCard";
 import ReactModal from "react-modal";
 import { MessageSquareDiff, Star } from "lucide-react";
+import { supabase } from "../../utils/supabase";
 
 ReactModal.setAppElement("#root");
 
@@ -36,9 +37,18 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     position: "",
     testimonial: "",
   });
+  const trimmedForm = {
+    ...form,
+    name: form.name.trim(),
+    email: form.email.trim().toLowerCase(),
+    position: form.position.trim(),
+    testimonial: form.testimonial.trim(),
+  };
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [testimonials, setTestimonials] = useState([]);
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -47,42 +57,92 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const [error, setError] = useState("");
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select("*")
+        .order("id", { ascending: false });
+      if (error) {
+        console.error("Fetch failed:", error.message);
+      } else {
+        setTestimonials(data);
+      }
+    };
+    fetchTestimonials();
+  }, []);
 
-  const handleSubmit = () => {
-    if (form.testimonial.length < 10) {
-      setError("Testimonial must be at least 10 characters");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    if (
+      !trimmedForm.name ||
+      !trimmedForm.email ||
+      !trimmedForm.position ||
+      form.testimonial.length < 10
+    ) {
+      setError("Please complete all fields with valid content.");
       return;
     }
-    setError("");
-    addTestimonial(form);
+    if (!form.name || !form.email || !form.position) {
+      setError("All fields are required");
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("testimonials")
+      .insert([trimmedForm]);
+    console.log("Insert result:", data);
+
+    if (error) {
+      console.error("Insert failed:", error.message);
+      alert("Failed to send message");
+    } else {
+      alert("Message sent successfully!");
+      setForm({
+        name: "",
+        email: "",
+        position: "",
+        testimonial: "",
+      });
+      setError("");
+      setTestimonials((prev) => [
+        {
+          ...form,
+          id: data?.[0]?.id || Date.now(), // jaga-jaga kalau ID belum tersedia
+        },
+        ...prev,
+      ]);
+
+      // setelah insert selesai:
+      setIsSubmitting(false);
+    }
+    if (!data || data.length === 0) {
+      alert("No data returned from Supabase!");
+      return;
+    }
+
+    // addTestimonial(form);
     if (onSubmit) onSubmit(form);
     // onSubmit(form);
     closeModal();
-
-    // Reset form
-    setForm({
-      name: "",
-      email: "",
-      position: "",
-      testimonial: "",
-    });
   };
 
-  const addTestimonial = (data) => {
-    const newItem = {
-      quote: data.testimonial,
-      name: data.name,
-      role: data.position,
-      initial: data.name
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .toUpperCase(),
-      rating: 5,
-    };
-    setTestimonials((prev) => [...prev, newItem]);
-  };
+  // const addTestimonial = (data) => {
+  //   const newItem = {
+  //     quote: data.testimonial,
+  //     name: data.name,
+  //     role: data.position,
+  //     initial: data.name
+  //       .split(" ")
+  //       .map((n) => n[0])
+  //       .join("")
+  //       .toUpperCase(),
+  //     rating: 5,
+  //   };
+  //   setTestimonials((prev) => [...prev, newItem]);
+  // };
 
   return (
     <section
@@ -119,7 +179,18 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
         {/* Testimonial List (scrollable if long) */}
         <div className="max-h-[320px] overflow-y-auto pr-2">
           {testimonials.map((item, i) => (
-            <TestimonialCard key={i} {...item} />
+            <TestimonialCard
+              key={i}
+              quote={item.testimonial}
+              name={item.name}
+              role={item.position}
+              initial={item.name
+                ?.split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()}
+              rating={5}
+            />
           ))}
         </div>
       </div>
@@ -139,59 +210,62 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
         </p>
 
         {/* Form */}
-        <div className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <input
-            type="text"
-            name="position"
-            placeholder="Position"
-            value={form.position}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <textarea
-            name="testimonial"
-            placeholder="Testimonial"
-            value={form.testimonial}
-            onChange={handleChange}
-            className={`w-full px-4 py-2 rounded-md border ${
-              error ? "border-red-400" : "border-gray-300"
-            } bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400`}
-            rows={4}
-          />
-          {error && <p className="text-sm text-red-500">{error}</p>}
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <input
+              type="text"
+              name="position"
+              placeholder="Position"
+              value={form.position}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <textarea
+              name="testimonial"
+              placeholder="Testimonial"
+              value={form.testimonial}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 rounded-md border ${
+                error ? "border-red-400" : "border-gray-300"
+              } bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400`}
+              rows={4}
+            />
+            {error && <p className="text-sm text-red-500">{error}</p>}
+          </div>
 
-        {/* Actions */}
-        <div className="flex justify-between gap-2 pt-2">
-          <button
-            onClick={closeModal}
-            className="w-1/2 border border-gray-300 rounded-md py-2 hover:bg-gray-100"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleSubmit}
-            className="w-1/2 bg-gray-800 text-white rounded-md py-2 hover:bg-gray-700"
-          >
-            ➤ Submit
-          </button>
-        </div>
+          {/* Actions */}
+          <div className="flex justify-between gap-2 pt-2">
+            <button
+              onClick={closeModal}
+              className="w-1/2 border border-gray-300 rounded-md py-2 hover:bg-gray-100"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              // onClick={handleSubmit}
+              className="w-1/2 bg-gray-800 text-white rounded-md py-2 hover:bg-gray-700"
+            >
+              {isSubmitting ? "Submitting..." : "➤ Submit"}
+            </button>
+          </div>
+        </form>
       </ReactModal>
     </section>
   );

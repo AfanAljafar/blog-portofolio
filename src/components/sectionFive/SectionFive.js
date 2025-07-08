@@ -45,12 +45,12 @@ const logos = [
   },
   {
     src: c,
-    link: "https://site11.com",
+    link: "https://www.w3schools.com/c/c_intro.php",
     bgColor: "bg-teal-100",
   },
   {
     src: cpp,
-    link: "https://site12.com",
+    link: "https://www.w3schools.com/cpp/default.asp",
     bgColor: "bg-cyan-100",
   },
   {
@@ -93,12 +93,12 @@ const logos = [
   },
   {
     src: supabase,
-    link: "https://www.w3schools.com/whatis/whatis_css.asp",
+    link: "https://supabase.com/docs",
     bgColor: "bg-blue-100",
   },
   {
     src: mongodbAtlas,
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    link: "https://www.mongodb.com/docs/atlas/",
     bgColor: "bg-green-100",
   },
   {
