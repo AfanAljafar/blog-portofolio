@@ -53,24 +53,26 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const fetchTestimonials = async () => {
+    const { data, error } = await supabase
+      .from("testimonials")
+      .select("*")
+      .order("id", { ascending: false });
+
+    if (error) {
+      console.error("Fetch failed:", error.message);
+    } else {
+      setTestimonials(data);
+    }
   };
 
   useEffect(() => {
-    const fetchTestimonials = async () => {
-      const { data, error } = await supabase
-        .from("testimonials")
-        .select("*")
-        .order("id", { ascending: false });
-      if (error) {
-        console.error("Fetch failed:", error.message);
-      } else {
-        setTestimonials(data);
-      }
-    };
     fetchTestimonials();
   }, []);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,54 +82,89 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
       !trimmedForm.name ||
       !trimmedForm.email ||
       !trimmedForm.position ||
-      form.testimonial.length < 10
+      trimmedForm.testimonial.length < 10
     ) {
       setError("Please complete all fields with valid content.");
-      return;
-    }
-    if (!form.name || !form.email || !form.position) {
-      setError("All fields are required");
+      setIsSubmitting(false);
       return;
     }
 
     const { data, error } = await supabase
       .from("testimonials")
       .insert([trimmedForm]);
-    console.log("Insert result:", data);
 
     if (error) {
       console.error("Insert failed:", error.message);
       alert("Failed to send message");
-    } else {
-      alert("Message sent successfully!");
-      setForm({
-        name: "",
-        email: "",
-        position: "",
-        testimonial: "",
-      });
-      setError("");
-      setTestimonials((prev) => [
-        {
-          ...form,
-          id: data?.[0]?.id || Date.now(), // jaga-jaga kalau ID belum tersedia
-        },
-        ...prev,
-      ]);
-
-      // setelah insert selesai:
       setIsSubmitting(false);
-    }
-    if (!data || data.length === 0) {
-      alert("No data returned from Supabase!");
       return;
     }
 
-    // addTestimonial(form);
-    if (onSubmit) onSubmit(form);
-    // onSubmit(form);
+    alert("Message sent successfully!");
+    setForm({
+      name: "",
+      email: "",
+      position: "",
+      testimonial: "",
+    });
+    setError("");
+
+    await fetchTestimonials(); // fetch ulang dari Supabase
+    if (onSubmit) onSubmit(trimmedForm);
     closeModal();
+    setIsSubmitting(false);
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   if (
+  //     !trimmedForm.name ||
+  //     !trimmedForm.email ||
+  //     !trimmedForm.position ||
+  //     form.testimonial.length < 10
+  //   ) {
+  //     setError("Please complete all fields with valid content.");
+  //     return;
+  //   }
+  //   if (!form.name || !form.email || !form.position) {
+  //     setError("All fields are required");
+  //     return;
+  //   }
+
+  //   const { data, error } = await supabase
+  //     .from("testimonials")
+  //     .insert([trimmedForm]);
+  //   console.log("Insert result:", data);
+
+  //   if (error) {
+  //     console.error("Insert failed:", error.message);
+  //     alert("Failed to send message");
+  //   } else {
+  //     alert("Message sent successfully!");
+  //     setForm({
+  //       name: "",
+  //       email: "",
+  //       position: "",
+  //       testimonial: "",
+  //     });
+  //     setError("");
+  //     await fetchTestimonials();
+
+  //     // setelah insert selesai:
+  //   }
+  //   if (!data || data.length === 0) {
+  //     alert("No data returned from Supabase!");
+  //     return;
+  //   }
+
+  //   // addTestimonial(form);
+  //   if (onSubmit) onSubmit(form);
+  //   // onSubmit(form);
+  //   closeModal();
+  //   setIsSubmitting(false);
+  // };
 
   // const addTestimonial = (data) => {
   //   const newItem = {
@@ -180,7 +217,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
         <div className="max-h-[320px] overflow-y-auto pr-2">
           {testimonials.map((item, i) => (
             <TestimonialCard
-              key={i}
+              key={item.id}
               quote={item.testimonial}
               name={item.name}
               role={item.position}
