@@ -46,6 +46,9 @@ const SignUpForm = () => {
       >
         <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
           <div className="flex flex-col gap-4">
+            <h2 className="text-center text-2xl font-semibold text-gray-800">
+              Sign Up
+            </h2>
             <input
               type="text"
               name="name"

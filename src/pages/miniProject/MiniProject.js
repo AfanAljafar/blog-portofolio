@@ -4,20 +4,30 @@ import OnlineShop from "../../components/onlineShop/OnlineShop";
 import SignUpForm from "../../components/signUpForm/SignUpForm";
 import TodoApp from "../../components/toDoApp/ToDoApp";
 import UnitsConverter from "../../components/unitsConverter/UnitsConverter";
+import SignInForm from "../../components/signInForm/SignInForm";
+import signuppict from "../../assets/signupthumbnail.png";
+import signinpict from "../../assets/signinthumbnail.png";
+import tempconv from "../../assets/temperaturConvert.png";
 
 const MiniProject = ({ todos, setTodos }) => {
   const minisProject = [
     {
       titleModal: "Units Converter",
       desModal: "Units Converter",
-      image: process.env.PUBLIC_URL + "/temperaturConvert.png",
+      image: tempconv,
       render: () => <UnitsConverter />,
     },
     {
       titleModal: "Sign Up Form",
       desModal: "Sign Up Form",
-      image: process.env.PUBLIC_URL + "/miniproject2.png",
+      image: signuppict,
       render: () => <SignUpForm />,
+    },
+    {
+      titleModal: "Sign In Form",
+      desModal: "Sign In Form",
+      image: signinpict,
+      render: () => <SignInForm />,
     },
     {
       titleModal: "To Do App",
