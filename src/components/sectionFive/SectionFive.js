@@ -248,12 +248,12 @@ const SectionFive = forwardRef((props, ref) => {
       ref={ref}
       className="section-four w-screen min-h-screen pt-[72px] px-4 md:px-10 py-10 bg-transparent"
     >
-      {/* Judul */}
+      {/* title */}
       <div className="text-center mb-6">
         <h1 className="text-white text-4xl md:text-5xl font-bold">Skills.</h1>
       </div>
 
-      {/* Kontainer logo */}
+      {/* logo of skill platform container   */}
       <div className="bg-gray-100 py-12 px-4 rounded-xl shadow-inner w-full max-w-7xl mx-auto space-y-6">
         {[row1, row2, row3, row4].map((row, i) => (
           <div

@@ -51,71 +51,98 @@ const SectionSeven = forwardRef((props, ref) => {
 
       <div className="max-w-2xl w-full mx-auto bg-sky-900 p-8 rounded-lg shadow-md">
         <form onSubmit={handleSubmit} className="space-y-2">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* First Name */}
             <div className="flex flex-col">
-              <label className="mb-1 text-sm font-medium">First Name*</label>
+              <label htmlFor="first_name" className="mb-1 text-sm font-medium">
+                First Name*
+              </label>
               <input
+                id="first_name"
                 type="text"
                 required
-                className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Your first name"
                 name="first_name"
+                placeholder="Your first name"
+                autoComplete="given-name"
                 value={formData.first_name}
                 onChange={handleChange}
+                className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
             </div>
+
+            {/* Last Name */}
             <div className="flex flex-col">
-              <label className="mb-1 text-sm font-medium">Last Name*</label>
+              <label htmlFor="last_name" className="mb-1 text-sm font-medium">
+                Last Name*
+              </label>
               <input
+                id="last_name"
                 type="text"
                 required
-                className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Your last name"
                 name="last_name"
+                placeholder="Your last name"
+                autoComplete="family-name"
                 value={formData.last_name}
                 onChange={handleChange}
+                className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
             </div>
           </div>
 
+          {/* Email */}
           <div className="flex flex-col">
-            <label className="mb-1 text-sm font-medium">Email*</label>
+            <label htmlFor="email" className="mb-1 text-sm font-medium">
+              Email*
+            </label>
             <input
+              id="email"
               type="email"
               required
-              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="you@example.com"
               name="email"
+              placeholder="you@example.com"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
+              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
           </div>
 
+          {/* Phone */}
           <div className="flex flex-col">
-            <label className="mb-1 text-sm font-medium">Phone</label>
+            <label htmlFor="phone" className="mb-1 text-sm font-medium">
+              Phone
+            </label>
             <input
+              id="phone"
               type="tel"
-              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="+62 812 xxx xxxx"
               name="phone"
+              placeholder="+62 812 xxx xxxx"
+              autoComplete="tel"
               value={formData.phone}
               onChange={handleChange}
+              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
           </div>
 
+          {/* Message */}
           <div className="flex flex-col">
-            <label className="mb-1 text-sm font-medium">Message*</label>
+            <label htmlFor="message" className="mb-1 text-sm font-medium">
+              Message*
+            </label>
             <textarea
-              rows="4"
-              required
-              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Type your message..."
+              id="message"
               name="message"
+              required
+              rows="4"
+              placeholder="Type your message..."
               value={formData.message}
               onChange={handleChange}
-            />
+              autoComplete="off"
+              className="p-2 rounded bg-sky-800 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            ></textarea>
           </div>
 
+          {/* Submit button */}
           <div className="text-right">
             <button
               type="submit"

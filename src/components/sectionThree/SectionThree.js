@@ -62,7 +62,7 @@ const SectionThree = forwardRef((props, ref) => {
   const scrollRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Auto scroll bolak-balik
+  // Auto scroll looping, paused hover
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -89,6 +89,7 @@ const SectionThree = forwardRef((props, ref) => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
+  //button manual scroll
   const handleScroll = (direction) => {
     const container = scrollRef.current;
     const scrollOffset = 300;
@@ -109,13 +110,11 @@ const SectionThree = forwardRef((props, ref) => {
         <h1 className="text-white text-4xl md:text-5xl font-bold">projects.</h1>
       </div>
 
-      {/* ✅ Mulai perubahan di sini */}
       <div
-        className="relative" // ✅ Tambah relative agar tombol bisa absolute di dalamnya
+        className="relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* ✅ Tombol kiri di dalam scope carousel */}
         <button
           onClick={() => handleScroll("left")}
           className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
@@ -123,7 +122,6 @@ const SectionThree = forwardRef((props, ref) => {
           <ChevronLeft size={24} />
         </button>
 
-        {/* ✅ Tombol kanan di dalam scope carousel */}
         <button
           onClick={() => handleScroll("right")}
           className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-sky-800 hover:bg-sky-700 text-white rounded-full shadow-md hidden md:flex"
@@ -131,7 +129,6 @@ const SectionThree = forwardRef((props, ref) => {
           <ChevronRight size={24} />
         </button>
 
-        {/* ✅ Box carousel yang bisa discroll */}
         <div
           ref={scrollRef}
           className="overflow-x-auto scroll-smooth scrollbar-hide px-8"
@@ -150,7 +147,6 @@ const SectionThree = forwardRef((props, ref) => {
           </div>
         </div>
       </div>
-      {/* ✅ Akhir perubahan */}
     </section>
   );
 });
