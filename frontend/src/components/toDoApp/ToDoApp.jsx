@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToDo, updateToDo, deleteToDo } from "../../redux/toDoSlice";
 
-const TodoApp = ({ todos = [], setTodos = () => {} }) => {
-  //this state will be lost when the component is unmounted (e.g. when the modal is closed or the page is changed)
-  // const [todos, setTodos] = useState([]);
-
+const TodoApp = () => {
+  const dispatch = useDispatch();
+  const toDos = useSelector((state) => state.toDoApp.toDos);
   const [newTodo, setNewTodo] = useState({
     task: "",
     description: "",
@@ -12,33 +13,19 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
     progress: "",
     status: "",
   });
-  const [editIndex, setEditIndex] = useState(null);
-
-  // function to fetch data from localStorage when the component is first rendered
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos"));
-    if (storedTodos) setTodos(storedTodos);
-  }, [setTodos]);
-
-  //function to Save to local Storage every time todos change
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  const [editId, setEditId] = useState(null);
 
   const handleChange = (e) => {
     setNewTodo({ ...newTodo, [e.target.name]: e.target.value });
   };
 
   const handleAddOrUpdate = () => {
-    if (editIndex !== null) {
-      const updated = [...todos];
-      updated[editIndex] = { ...newTodo, id: updated[editIndex].id };
-      setTodos(updated);
-      setEditIndex(null);
+    if (editId !== null) {
+      dispatch(updateToDo({ id: editId, data: newTodo }));
+      setEditId(null);
     } else {
-      setTodos([...todos, { ...newTodo, id: Date.now() }]);
+      dispatch(addToDo({ ...newTodo, id: Date.now() }));
     }
-
     setNewTodo({
       task: "",
       description: "",
@@ -49,19 +36,21 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
     });
   };
 
-  const handleEdit = (index) => {
-    setNewTodo(todos[index]);
-    setEditIndex(index);
+  const handleEdit = (id) => {
+    const todo = toDos.find((item) => item.id === id);
+    if (todo) {
+      setNewTodo({ ...todo });
+      setEditId(id);
+    }
   };
 
   const handleDelete = (id) => {
-    const filtered = todos.filter((todo) => todo.id !== id);
-    setTodos(filtered);
+    dispatch(deleteToDo(id));
   };
 
   return (
     <div className="w-full h-full p-6 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">📝 To-Do App (LocalStorage)</h1>
+      <h1 className="text-2xl font-bold mb-4">📝 To-Do App (Redux)</h1>
 
       {/* form input */}
       <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -118,7 +107,7 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
           onClick={handleAddOrUpdate}
           className="md:col-span-3 bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
         >
-          {editIndex !== null ? "Update Todo" : "Add Todo"}
+          {editId !== null ? "Update Todo" : "Add Todo"}
         </button>
       </div>
 
@@ -138,7 +127,7 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
             </tr>
           </thead>
           <tbody>
-            {todos.map((todo, idx) => (
+            {toDos.map((todo) => (
               <tr key={todo.id} className="border-t">
                 <td className="p-2 border">{todo.id}</td>
                 <td className="p-2 border">{todo.task}</td>
@@ -149,7 +138,7 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
                 <td className="p-2 border">{todo.status}</td>
                 <td className="p-2 border flex gap-2">
                   <button
-                    onClick={() => handleEdit(idx)}
+                    onClick={() => handleEdit(todo.id)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600"
                   >
                     Edit
@@ -163,7 +152,7 @@ const TodoApp = ({ todos = [], setTodos = () => {} }) => {
                 </td>
               </tr>
             ))}
-            {todos.length === 0 && (
+            {toDos.length === 0 && (
               <tr>
                 <td colSpan="8" className="text-center p-4 text-gray-500">
                   No tasks found.

@@ -1,62 +1,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import Card from "../card/Card";
-import miniProject from "../../assets/miniProject.png";
-import inProgress from "../../assets/in-progress.jpeg";
+import { dataProject } from "./dataProject";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const data = [
-  {
-    title: "Mini Project",
-    content: "kompilasi mini project",
-    image: miniProject,
-    path: "/mini-project",
-  },
-  {
-    title: "Project 2",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 3",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 4",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 5",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 6",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 7",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 8",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 9",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-  {
-    title: "Project 10",
-    content: "dekripsi singkat project.",
-    image: inProgress,
-  },
-];
 
 const SectionThree = forwardRef((props, ref) => {
   const scrollRef = useRef(null);
@@ -134,7 +79,7 @@ const SectionThree = forwardRef((props, ref) => {
           className="overflow-x-auto scroll-smooth scrollbar-hide px-8"
         >
           <div className="grid grid-flow-col auto-cols-[minmax(250px,_1fr)] grid-rows-2 gap-x-6 gap-y-6 min-w-max pb-4">
-            {[...data, ...data].map((item, index) => (
+            {[...dataProject].map((item, index) => (
               <div key={index} className="w-full h-full">
                 <Card
                   title={item.title}
