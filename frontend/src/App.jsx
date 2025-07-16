@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import Layout from "./components/layout/layout";
 import Home from "./pages/home/Home";
 import MiniProject from "./pages/miniProject/MiniProject";
+import MicrocontrollerProjectPage from "./pages/microcontrollerProjectPage/MicrocontrollerProjectPage";
 
 function App() {
   const location = useLocation();
@@ -58,6 +59,10 @@ function App() {
               }
             />
             <Route path="/mini-project" element={<MiniProject />} />
+            <Route
+              path="/microcontroller-project"
+              element={<MicrocontrollerProjectPage />}
+            />
           </Route>
         </Routes>
       </div>

@@ -9,9 +9,10 @@ export const dataProject = [
     path: "/mini-project",
   },
   {
-    title: "Project 2",
-    content: "dekripsi singkat project.",
+    title: "Microcontroller Project",
+    content: "IOT Web-ESP32",
     image: inProgress,
+    path: "/microcontroller-project",
   },
   {
     title: "Project 3",
