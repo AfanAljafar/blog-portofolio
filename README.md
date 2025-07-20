@@ -4,4 +4,6 @@
 
 ![React](https://img.shields.io/badge/React-18.0+-blue?logo=react)
 
+![React Version](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
+
 This will be a portfolio project from Afan
