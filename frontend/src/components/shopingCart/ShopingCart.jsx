@@ -7,7 +7,7 @@ const products = [
   { id: "topi", name: "Topi", price: "Rp 50.000", image: "/topi.jpg" },
 ];
 
-const OnlineShop = () => {
+const ShopingCart = () => {
   const [cart, setCart] = useState({});
 
   const handleQuantityChange = useCallback((productId, quantity) => {
@@ -22,7 +22,7 @@ const OnlineShop = () => {
   return (
     <div className="w-full min-h-screen bg-gray-100 p-4">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-sky-900">Online Shop</h2>
+        <h2 className="text-2xl font-bold text-sky-900">Shoping List</h2>
         <div className="text-lg font-medium text-sky-800">
           🛒 <span className="font-bold">{totalItems}</span>
         </div>
@@ -41,4 +41,4 @@ const OnlineShop = () => {
   );
 };
 
-export default OnlineShop;
+export default ShopingCart;

@@ -98,7 +98,8 @@ const SectionTwo = forwardRef((props, ref) => {
                 <User size={18} />
               </div>
               <p>
-                <span className="font-semibold">Name:</span>
+                <span className="font-semibold">Name:&nbsp;</span>
+
                 {props.name}
               </p>
             </div>
@@ -107,7 +108,7 @@ const SectionTwo = forwardRef((props, ref) => {
                 <Calendar size={18} />
               </div>
               <p>
-                <span className="font-semibold">Date of Birth:</span>
+                <span className="font-semibold">Date of Birth:&nbsp;</span>
                 {props.birthDate}
               </p>
             </div>

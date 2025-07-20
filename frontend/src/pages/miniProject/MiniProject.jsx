@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import ModalCard from "../../components/modalMiniProject/ModalCard";
-import OnlineShop from "../../components/onlineShop/OnlineShop";
+import ShopingCart from "../../components/shopingCart/ShopingCart";
 import SignUpForm from "../../components/signUpForm/SignUpForm";
 import TodoApp from "../../components/toDoApp/ToDoApp";
 import UnitsConverter from "../../components/unitsConverter/UnitsConverter";
@@ -12,7 +12,7 @@ const renderMap = {
   "sign-up-form": () => <SignUpForm />,
   "sign-in-form": () => <SignInForm />,
   "to-do-app": () => <TodoApp />,
-  "online-shop": () => <OnlineShop />,
+  "shoping-cart": () => <ShopingCart />,
 };
 
 const MiniProject = () => {

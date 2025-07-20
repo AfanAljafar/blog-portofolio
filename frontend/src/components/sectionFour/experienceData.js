@@ -3,7 +3,7 @@ import Telkom from "../../assets/Telkom.png";
 import pupukKujang from "../../assets/pupukKujang.png";
 import MKIR from "../../assets/MKIR.png";
 import TSS from "../../assets/TSS.png";
-import nodejs from "../../assets/nodejs.png";
+import dev from "../../assets/dev.png";
 
 export const experienceData = [
   {
@@ -41,10 +41,9 @@ export const experienceData = [
     description: `Sales Engineer 'Telecommunication'`,
   },
   {
-    year: "April, 2025 - Becoming a Professional and beyond",
+    year: "agustus, 2024 - Becoming a Professional and beyond",
     title: "starting point as programmer",
-    icon: nodejs,
-    description: `My starting point is doing project full-stack development
-      ( MERN / PERN )`,
+    icon: dev,
+    description: `My commitment to full-stack development starts here`,
   },
 ];

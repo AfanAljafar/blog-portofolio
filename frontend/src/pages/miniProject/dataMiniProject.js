@@ -28,9 +28,9 @@ export const minisProjectData = [
     key: "to-do-app",
   },
   {
-    titleModal: "Online Shop",
-    desModal: "Online Shop",
+    titleModal: "Shoping Cart",
+    desModal: "Shoping Cart",
     image: `${import.meta.env.BASE_URL}/miniproject4.png`,
-    key: "online-shop",
+    key: "shoping-cart",
   },
 ];

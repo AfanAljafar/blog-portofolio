@@ -40,7 +40,7 @@ const Home = ({
           Experienced as a Sales Engineer at PT Tayoh Sarana Sukses (2025), Engineering and Maintenance Unit Head 'Glaze Application section' at PT. Mulia Keramik Indah Raya (2023).
           I am transitioning from a career in Maintenance and Sales Engineering to Full-Stack Development or Software and Hardware Programming.
           `}
-        programmingExperience={"less than 1 Years"}
+        programmingExperience={"1 - 2 Years"}
         mainLang={"JavaScript, Python"}
         totalProjects={"10+ Projects"}
         gpa={"2.89 / 4.00"}
@@ -69,7 +69,7 @@ const Home = ({
                 commitment, I am shifting my career toward a focus on electrical
                 engineering, software, and hardware programming to better align
                 with my interest in technology development and innovation.`}
-        name={`Muhammad Afan Aljafar`}
+        name={` Muhammad Afan Aljafar`}
         birthDate={`June, 12 1998`}
         birthPlace={`Tangerang, Indonesia`}
         email={`muhammadafanaljafar@gmail.com`}

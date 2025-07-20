@@ -1,10 +1,33 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Github, Instagram, Linkedin, Twitter, Download } from "lucide-react";
 import profileImage from "../../assets/profile-linkedin.jpg";
+import { Typewriter } from "react-simple-typewriter";
 
 const SectionOne = forwardRef((props, ref) => {
   const navigate = useNavigate();
+  const [showRole, setShowRole] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
+
+  useEffect(() => {
+    // Durasi intro
+    const typeSpeedIntro = 70;
+    const delaySpeedIntro = 1000;
+    const totalIntro = props.intro.length * typeSpeedIntro + delaySpeedIntro;
+    const timerIntro = setTimeout(() => setShowRole(true), totalIntro);
+    return () => clearTimeout(timerIntro);
+  }, [props.intro]);
+
+  useEffect(() => {
+    if (!showRole) return;
+    // Durasi role
+    const typeSpeedRole = 70;
+    const delaySpeedRole = 1000;
+    const totalRole = props.role.length * typeSpeedRole + delaySpeedRole;
+    const timerRole = setTimeout(() => setShowSummary(true), totalRole);
+    return () => clearTimeout(timerRole);
+  }, [showRole, props.role]);
+
   return (
     <section
       ref={ref}
@@ -12,11 +35,39 @@ const SectionOne = forwardRef((props, ref) => {
     >
       {/* LEFT CONTENT */}
       <div className="flex-1 text-white text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-bold">{props.intro}</h1>
-        <p className="text-lg mt-2 text-cyan-300 font-medium">{props.role}</p>
-        <p className="whitespace-pre-line mt-4 text-sky-100 max-w-full mx-auto md:mx-0 md:text-justify">
-          {props.summary}
-        </p>
+        <h1 className="text-4xl md:text-5xl font-bold">
+          <Typewriter
+            words={[props.intro]}
+            loop={1}
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h1>
+        {showRole && (
+          <p className="text-lg mt-2 text-cyan-300 font-medium">
+            <Typewriter
+              words={[props.role]}
+              loop={1}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </p>
+        )}
+        {showSummary && (
+          <p className="whitespace-pre-line mt-4 text-sky-100 max-w-full mx-auto md:mx-0 md:text-justify">
+            <Typewriter
+              words={[props.summary]}
+              loop={1}
+              typeSpeed={25}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </p>
+        )}
 
         {/* SOCIAL ICONS */}
         <div className="flex justify-center md:justify-start gap-4 mt-4 text-cyan-300">
