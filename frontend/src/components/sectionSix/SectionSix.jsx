@@ -2,7 +2,7 @@ import React, { forwardRef, useState, useEffect } from "react";
 import TestimonialCard from "./testimonialCard/TestimonialCard";
 import ReactModal from "react-modal";
 import { MessageSquareDiff, Star } from "lucide-react";
-import supabase from "../../utils/supabase";
+import axios from "axios";
 import RatingInput from "./ratingInput/RatingInput";
 
 ReactModal.setAppElement("#root");
@@ -33,16 +33,15 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
   const closeModal = () => setIsOpen(false);
 
   const fetchTestimonials = async () => {
-    const { data, error } = await supabase
-      .from("testimonials")
-      .select("*")
-      .order("id", { ascending: false });
+    const { data, error } = await axios.get(
+      "http://localhost:4001/visitor/display-testimonial"
+    );
 
     if (error) {
       console.error("Fetch failed:", error.message);
     } else {
-      console.log("Fetched testimonials:", data); // 👈 tambahkan ini
-      setTestimonials(data);
+      console.log("Fetched testimonials:", data);
+      setTestimonials(data.data);
     }
   };
 
@@ -73,7 +72,10 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
       return;
     }
 
-    const { error } = await supabase.from("testimonials").insert([trimmedForm]);
+    const { error } = await axios.post(
+      "http://localhost:4001/visitor/create-testimonial",
+      trimmedForm
+    );
 
     if (error) {
       console.error("Insert failed:", error.message);
@@ -91,7 +93,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     });
     setError("");
 
-    await fetchTestimonials(); // fetch ulang dari Supabase
+    await fetchTestimonials();
     if (onSubmit) onSubmit(trimmedForm);
     closeModal();
     setIsSubmitting(false);
@@ -156,7 +158,7 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
           Share Your Testimonial
         </h2>
         <p className="text-sm text-center text-gray-600">
-          Tell us about your experience working with us
+          Tell me about your experience knowing me
         </p>
 
         {/* Form */}

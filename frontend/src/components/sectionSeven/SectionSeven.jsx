@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from "react";
-import supabase from "../../utils/supabase";
+import axios from "axios";
 
 const SectionSeven = forwardRef((props, ref) => {
   const [formData, setFormData] = useState({
@@ -20,9 +20,10 @@ const SectionSeven = forwardRef((props, ref) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { data, error } = await supabase
-      .from("portfolio_message") // ganti dengan nama tabel yang kamu buat
-      .insert([formData]);
+    const { data, error } = await axios.post(
+      "http://localhost:4001/visitor/contact",
+      formData
+    );
     console.log("Insert result:", data);
 
     if (error) {

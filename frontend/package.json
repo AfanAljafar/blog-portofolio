@@ -15,6 +15,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@supabase/supabase-js": "^2.50.5",
+    "axios": "^1.10.0",
     "dotenv": "^17.2.0",
     "lucide-react": "^0.525.0",
     "mqtt": "^5.13.2",
@@ -24,6 +25,7 @@
     "react-modal": "^3.16.3",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.3",
+    "react-simple-typewriter": "^5.0.1",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
