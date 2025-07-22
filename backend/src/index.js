@@ -16,9 +16,9 @@ app.use(
       "http://localhost:3000",
       "https://afanaljafar.github.io/blog-portofolio/",
     ],
+    credentials: true,
   })
 );
-app.options("*", cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
