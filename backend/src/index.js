@@ -9,13 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4001;
 
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000", "https://afanaljafar.github.io"],
-//     methods: ["GET", "POST", "OPTIONS"],
-//     credentials: true,
-//   })
-// );
 app.use(cors());
 app.use(express.json());
 app.use(middlewareLogging);
@@ -37,5 +30,4 @@ if (require.main === module) {
   });
 }
 
-// Ekspor app untuk digunakan oleh handler Vercel
 module.exports = app;
