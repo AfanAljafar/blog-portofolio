@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4001;
 
 app.use(middlewareLogging);
-aapp.use(
+app.use(
   cors({
     origin: [
       "http://localhost:3000",
