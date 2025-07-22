@@ -13,6 +13,15 @@ app.use(middlewareLogging);
 app.use(express.json());
 app.use(cors());
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://afanaljafar.github.io/blog-portofolio/",
+    ],
+  })
+);
+
 app.get("/", (req, res) => {
   res.send("✅ Backend running on Vercel");
 });
