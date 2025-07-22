@@ -12,10 +12,8 @@ const PORT = process.env.PORT || 4001;
 app.use(middlewareLogging);
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://afanaljafar.github.io/blog-portofolio/",
-    ],
+    origin: ["http://localhost:3000", "https://afanaljafar.github.io"],
+    methods: ["GET", "POST", "OPTIONS"],
     credentials: true,
   })
 );

@@ -4,10 +4,8 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://afanaljafar.github.io/blog-portofolio/",
-    ],
+    origin: ["http://localhost:3000", "https://afanaljafar.github.io"],
+    methods: ["GET", "POST", "OPTIONS"],
     credentials: true,
   })
 );
