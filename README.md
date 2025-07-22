@@ -6,6 +6,5 @@ This will be a portfolio project from Afan
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 
-Frontend (Github Pages)
-
+Frontend (Github Pages)  
 |----> Backend (Vercel Express API) |----> Database (Supabase PostgreSQL)
