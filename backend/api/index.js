@@ -13,5 +13,15 @@ app.use(cors());
 
 // module.exports = serverless(app);
 module.exports = (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   app(req, res);
 };
