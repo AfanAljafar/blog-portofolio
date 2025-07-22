@@ -132,20 +132,23 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
 
         {/* testimonial list */}
         <div className="max-h-[320px] overflow-y-auto pr-2">
-          {testimonials.map((item) => (
-            <TestimonialCard
-              key={item.id}
-              quote={item.testimonial}
-              name={item.name}
-              role={item.position}
-              initial={item.name
-                ?.split(" ")
-                .map((n) => n[0])
-                .join("")
-                .toUpperCase()}
-              rating={item.rating}
-            />
-          ))}
+          {testimonials
+            .slice()
+            .reverse()
+            .map((item) => (
+              <TestimonialCard
+                key={item.id}
+                quote={item.testimonial}
+                name={item.name}
+                role={item.position}
+                initial={item.name
+                  ?.split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .toUpperCase()}
+                rating={item.rating}
+              />
+            ))}
         </div>
       </div>
       <ReactModal
