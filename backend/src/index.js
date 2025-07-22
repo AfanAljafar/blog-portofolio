@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4001;
 
 app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 app.use(middlewareLogging);
 
