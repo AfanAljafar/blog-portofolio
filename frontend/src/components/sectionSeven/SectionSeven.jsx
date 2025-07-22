@@ -21,7 +21,8 @@ const SectionSeven = forwardRef((props, ref) => {
     e.preventDefault();
 
     const { data, error } = await axios.post(
-      "http://localhost:4001/visitor/contact",
+      // "http://localhost:4001/visitor/contact",
+      `${import.meta.env.VITE_API_URL}/visitor/contact`,
       formData
     );
     console.log("Insert result:", data);

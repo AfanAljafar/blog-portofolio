@@ -34,7 +34,8 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
 
   const fetchTestimonials = async () => {
     const { data, error } = await axios.get(
-      "http://localhost:4001/visitor/display-testimonial"
+      // "http://localhost:4001/visitor/display-testimonial"
+      `${import.meta.env.VITE_API_URL}/visitor/display-testimonial`
     );
 
     if (error) {
@@ -73,7 +74,8 @@ const SectionSix = forwardRef(({ props, onSubmit }, ref) => {
     }
 
     const { error } = await axios.post(
-      "http://localhost:4001/visitor/create-testimonial",
+      // "http://localhost:4001/visitor/create-testimonial"
+      `${import.meta.env.VITE_API_URL}/visitor/create-testimonial`,
       trimmedForm
     );
 
