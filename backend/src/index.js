@@ -9,7 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4001;
 
-app.use(middlewareLogging);
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://afanaljafar.github.io"],
@@ -19,6 +18,7 @@ app.use(
 );
 app.use(cors());
 app.use(express.json());
+app.use(middlewareLogging);
 
 app.get("/", (req, res) => {
   res.send("✅ Backend running on Vercel");
