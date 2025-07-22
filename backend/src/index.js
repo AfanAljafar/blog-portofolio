@@ -13,6 +13,10 @@ app.use(middlewareLogging);
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("✅ Backend running on Vercel");
+});
+
 app.use("/visitor", blogPortofolioRoutes);
 
 // app.listen(PORT, () => {
