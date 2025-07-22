@@ -1,5 +1,6 @@
 const express = require("express");
 const blogPortofolioController = require("../controller/blog_portofolio");
+const db = require("../config/dataBase");
 
 const router = express.Router();
 
