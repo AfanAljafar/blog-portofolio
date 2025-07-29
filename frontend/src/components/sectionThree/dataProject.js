@@ -15,9 +15,10 @@ export const dataProject = [
     path: "/microcontroller-project",
   },
   {
-    title: "Project 3",
-    content: "dekripsi singkat project.",
+    title: "Project Inventory Manager",
+    content: `Inventory Manager App Project\n(Approaching to Enterprise Resource Planning)\nAngular JS - GO`,
     image: inProgress,
+    path: "/project-inventory-manager",
   },
   {
     title: "Project 4",

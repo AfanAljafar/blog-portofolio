@@ -22,7 +22,7 @@ const MiniProject = () => {
 
   return (
     <div className="min-h-screen bg-sky-950 px-4 py-8 ">
-      <h2 className="text-center text-3xl md:text-4xl pt-[60px] font-bold text-white mb-8">
+      <h2 className="text-center text-2xl md:text-3xl pt-[60px] font-bold text-white mb-2">
         Mini Project.
       </h2>
 
