@@ -14,8 +14,8 @@ const SectionFour = forwardRef((props, ref) => {
       </div>
 
       {/* timeline */}
-      <div className="overflow-x-auto md:overflow-visible">
-        <div className="flex md:grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-items-center px-4">
+      <div className="overflow-x-auto md:overflow-visible  ">
+        <div className="flex flex-row flex-nowrap gap-6 px-4 overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-4 xl:flex xl:flex-row xl:flex-nowrap xl:overflow-x-auto xl:space-x-6 xl:pb-3 justify-items-center">
           {/* card */}
           {experienceData.map((item, index) => (
             <div

@@ -80,7 +80,7 @@ const SectionThree = forwardRef((props, ref) => {
         >
           <div className="grid grid-flow-col auto-cols-[minmax(250px,_1fr)] grid-rows-2 gap-x-6 gap-y-6 min-w-max pb-4">
             {[...dataProject].map((item, index) => (
-              <div key={index} className="w-full h-full">
+              <div key={index} className="w-full h-full whitespace-pre-line">
                 <Card
                   title={item.title}
                   content={item.content}

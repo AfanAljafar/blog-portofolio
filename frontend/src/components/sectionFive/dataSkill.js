@@ -23,6 +23,7 @@ import redux from "../../assets/redux.png";
 import TS from "../../assets/TS.png";
 import GO from "../../assets/GO.png";
 import postman from "../../assets/postman.png";
+import angularjs from "../../assets/angular.png";
 
 export const logos = [
   {
@@ -79,6 +80,11 @@ export const logos = [
     src: nextjs,
     link: "https://nextjs.org/docs",
     bgColor: "bg-teal-100",
+  },
+  {
+    src: angularjs,
+    link: "https://angular.dev/",
+    bgColor: "bg-blue-200",
   },
   {
     src: tailwindcss,
