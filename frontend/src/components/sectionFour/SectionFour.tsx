@@ -1,9 +1,14 @@
 import React, { forwardRef } from "react";
 import { experienceData } from "./experienceData";
 
-const SectionFour = forwardRef<HTMLElement>((props, ref) => {
+interface SectionFourProps {
+  id?: string;
+}
+
+const SectionFour = forwardRef<HTMLElement, SectionFourProps>((props, ref) => {
   return (
     <section
+      id="experience"
       ref={ref}
       className="min-w-screen min-h-screen pt-[72px] px-4 md:px-10"
     >

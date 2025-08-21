@@ -3,7 +3,21 @@ import ReactModal from "react-modal";
 
 ReactModal.setAppElement("#root");
 
-const ModalCard = ({ image, title, titleModal, desModal, component }) => {
+type ModalCardProps = {
+  image: string;
+  titleModal: string;
+  desModal: string;
+  component: () => React.ReactNode;
+  title?: string; // optional
+};
+
+const ModalCard = ({
+  image,
+  title,
+  titleModal,
+  desModal,
+  component,
+}: ModalCardProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);

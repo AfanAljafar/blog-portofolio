@@ -12,6 +12,7 @@ interface SectionOneProps {
   mainLang: string;
   totalProjects: string;
   gpa: string;
+  id?: string;
 }
 
 const SectionOne = forwardRef<HTMLElement, SectionOneProps>((props, ref) => {
@@ -40,6 +41,7 @@ const SectionOne = forwardRef<HTMLElement, SectionOneProps>((props, ref) => {
 
   return (
     <section
+      id="home"
       ref={ref}
       className="w-screen min-h-screen pb-5 px-6 md:px-[50px] pt-[86px] flex flex-col md:flex-row items-center justify-between gap-10 "
     >

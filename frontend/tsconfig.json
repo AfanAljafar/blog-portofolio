@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "module": "esnext",
     "target": "esnext",
-    "types": [],
+    "types": ["react", "react-dom"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

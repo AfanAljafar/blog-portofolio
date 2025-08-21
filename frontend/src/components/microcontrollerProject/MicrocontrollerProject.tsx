@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 const MicrocontrollerProject = () => {
   const ESP32_URL = "http://10.10.36.6";
 
-  const handleControlHTTP = async (action) => {
+  const handleControlHTTP = async (action: any) => {
     try {
       await fetch(`${ESP32_URL}/led/${action}`, { method: "POST" });
       console.log(`LED ${action} sukses`);

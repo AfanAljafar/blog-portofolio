@@ -2,20 +2,19 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useRef, useEffect } from "react";
 import { lazy, Suspense } from "react";
 
-import Layout from "./components/layout/layout.jsx";
+import Layout from "./components/layout/layout";
 // import Home from "./pages/home/Home";
 // import MiniProject from "./pages/miniProject/MiniProject";
 // import MicrocontrollerProjectPage from "./pages/microcontrollerProjectPage/MicrocontrollerProjectPage";
 // import InventoryManager from "./pages/inventoryManager/InventoryManager";
 import React from "react";
-const Home = lazy(() => import("./pages/home/Home.jsx"));
-const MiniProject = lazy(() => import("./pages/miniProject/MiniProject.jsx"));
+const Home = lazy(() => import("./pages/home/Home"));
+const MiniProject = lazy(() => import("./pages/miniProject/MiniProject"));
 const MicrocontrollerProjectPage = lazy(
-  () =>
-    import("./pages/microcontrollerProjectPage/MicrocontrollerProjectPage.jsx")
+  () => import("./pages/microcontrollerProjectPage/MicrocontrollerProjectPage")
 );
 const InventoryManager = lazy(
-  () => import("./pages/inventoryManager/InventoryManager.jsx")
+  () => import("./pages/inventoryManager/InventoryManager")
 );
 
 function App() {
@@ -46,7 +45,7 @@ function App() {
   // Checking function  if there is a query section
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const section = params.get("section");
+    const section = params.get("scrollTo");
     if (location.pathname === "/" && section) {
       setTimeout(() => scrollToSection(section), 100); // scroll after render
     }

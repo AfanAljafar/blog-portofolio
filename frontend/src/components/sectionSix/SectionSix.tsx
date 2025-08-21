@@ -13,6 +13,7 @@ interface SectionSixProps {
     testimonialTagLine: string;
   };
   onSubmit?: (formData: any) => void;
+  id?: string;
 }
 
 interface FormData {
@@ -127,6 +128,7 @@ const SectionSix = forwardRef<HTMLElement, SectionSixProps>(
 
     return (
       <section
+        id="testimonials"
         ref={ref}
         className="section-four w-screen min-h-screen pt-[72px] px-4 md:px-10 py-10 bg-transparent"
       >

@@ -7,6 +7,10 @@ interface DiamondBoxProps {
   bgColor: string;
 }
 
+interface SectionFiveProps {
+  id?: string;
+}
+
 // Komponen untuk kotak diamond
 const DiamondBox: React.FC<DiamondBoxProps> = ({ src, link, bgColor }) => (
   <div
@@ -23,7 +27,7 @@ const DiamondBox: React.FC<DiamondBoxProps> = ({ src, link, bgColor }) => (
 );
 
 // Komponen utama SectionFive
-const SectionFive = forwardRef<HTMLElement>((props, ref) => {
+const SectionFive = forwardRef<HTMLElement, SectionFiveProps>((props, ref) => {
   const row1 = logos.slice(0, 10);
   const row2 = logos.slice(10, 21);
   const row3 = logos.slice(21, 31);
@@ -31,6 +35,7 @@ const SectionFive = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <section
+      id="skills"
       ref={ref}
       className="section-four w-screen min-h-screen pt-[72px] px-4 md:px-10 py-10 bg-transparent"
     >

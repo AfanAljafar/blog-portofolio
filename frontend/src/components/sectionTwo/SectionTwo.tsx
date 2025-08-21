@@ -25,11 +25,16 @@ interface SectionTwoProps {
   phone: string;
   univ: string;
   gpa: string;
+  id?: string;
 }
 
 const SectionTwo = forwardRef<HTMLElement, SectionTwoProps>((props, ref) => {
   return (
-    <section ref={ref} className="min-w-screen min-h-screen pt-[72px] px-4">
+    <section
+      id="about"
+      ref={ref}
+      className="min-w-screen min-h-screen pt-[72px] px-4"
+    >
       <div className="flex flex-col m-[10px]">
         <h1 className="text-3xl md:text-4xl font-bold text-white text-center">
           {props.titleSection}

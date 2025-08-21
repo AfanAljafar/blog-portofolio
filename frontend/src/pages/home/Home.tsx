@@ -29,14 +29,14 @@ const Home = ({
 }: HomeProps) => {
   const location = useLocation();
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const scrollTarget = params.get("scrollTo");
+  // useEffect(() => {
+  //   const params = new URLSearchParams(location.search);
+  //   const scrollTarget = params.get("scrollTo");
 
-    if (scrollTarget === "sectionOne" && sectionHomeRef?.current) {
-      sectionHomeRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [location, sectionHomeRef]);
+  //   if (scrollTarget === "sectionOne" && sectionHomeRef?.current) {
+  //     sectionHomeRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [location, sectionHomeRef]);
 
   useEffect(() => {
     window.scrollTo(0, 0); // automatically scroll up when page is opened
@@ -44,6 +44,7 @@ const Home = ({
   return (
     <div className="home text-antiquewhite bg-sky-950 bg-repeat">
       <SectionOne
+        id="home"
         intro={"Hi, I'm Afan Aljafar 👋"}
         role={"Junior Fullstack Developer"}
         summary={`I’m a Bachelor of Electrical and Electronic Engineering graduate from Telkom University (2021) with a strong interest in technology, systems development, and innovation.
@@ -57,6 +58,7 @@ const Home = ({
         ref={sectionHomeRef}
       />
       <SectionTwo
+        id="about"
         titleSection={"About Me"}
         summarySection={"To Infinity and Beyond!"}
         selfDesc={`My Name is Afan, I’m a Bachelor of Electrical Engineering
@@ -88,10 +90,11 @@ const Home = ({
         gpa={`2.89 / 4.00`}
         ref={section2Ref}
       />
-      <SectionThree ref={section3Ref} />
-      <SectionFour ref={section4Ref} />
-      <SectionFive ref={section5Ref} />
+      <SectionThree id="projects" ref={section3Ref} />
+      <SectionFour id="experience" ref={section4Ref} />
+      <SectionFive id="skills" ref={section5Ref} />
       <SectionSix
+        id="testimonials"
         props={{
           testimonialTitle: `What People Say`,
           testimonialTagLine: ` Voices from clients, collaborators, and friends who have experienced
@@ -99,7 +102,7 @@ const Home = ({
         }}
         ref={section6Ref}
       />
-      <SectionSeven ref={section7Ref} />
+      <SectionSeven id="contact" ref={section7Ref} />
     </div>
   );
 };
